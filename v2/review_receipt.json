@@ -1,0 +1,70 @@
+{
+  "schema": "cyclecraft.v2.independent-mathematical-review.v1",
+  "status": "PASS",
+  "reviewed_source_sha256": {
+    "noise_geometry_audit.py": "11704175044629f249db53498be057bfd38308cbf5c29ab0b0a4eee84f4336d3",
+    "noise_smooth_review.py": "8cbc3a2c9a2846964526d669fb3b4b02bdba5f10d4cdd73e1738a2dc1c5ab94d",
+    "statistics.py": "2f86dc8049d5c820877ad9d65f0d62fdeb13a91f7483d0308f9d6447b7ecb3b3",
+    "precision_cert.py": "1a67dd6a58a5f963054800c5422f4740e49257926dc5af75586c15dd31d4ddc8",
+    "primal_certificate.py": "1f66175f4980426b380b26b26e2b97ba42fbfd81f564ecf9409f91e2ee2291a7",
+    "dual_certificate.py": "66844c5ad2c1dfe2d3ecef82f4582c20ef21ab96295d42666912b8bf592cc714",
+    "aggregate_convex.py": "bb3229212132a0046f47545a26eb7321a18c03665a2d4f026b4c54a84fced81c"
+  },
+  "automated_independent_audits": {
+    "exact_noise_cases": 15,
+    "exact_noise_checks": 210,
+    "smooth_floor_cases": 9,
+    "maximum_floor_discrepancy": 3.056221942188131e-12,
+    "continuous_primal_predicates": 42
+  },
+  "accepted_scopes": {
+    "exact_noise": "Frozen rational tilted perturbations, periodic corrector proof, graph floor, cycle quotient rank and bridge endpoint identity.",
+    "smooth_statistics": "Binary64 periodic moments, backward corrector, killed count lift and independent retained-sample graph floor.",
+    "held_probability_certificates": "Exact rational three-hold rates; 320-bit Arb propagation, Doeblin-certified periodic initial law, finite-N moments and probability enclosures; separate from smooth protocols.",
+    "continuous_primal": "Exact rational q,x and cubic p; exact closure, normalization, uniform mean inventory, counts and activity; rational Bernstein and outward Arb energy/rate/entropy/slew feasibility.",
+    "continuous_dual": "Fixed-gate global baseline upper bound with periodic costate, interval coefficients, supporting entropy planes and rigorous LP dual-residual correction. Baseline has unrestricted well slew, making the upper bound conservative for the common finite-slew class.",
+    "frontier": "Exact mixture with uniform p=1/5,x=3/16; convex constraints and entropy; separately certified uniform slew; same dual reused at reduced entropy budgets."
+  },
+  "strict_comparisons": [
+    {
+      "architecture": "star",
+      "assisted_exact": "10621020479187181/144115188075855872",
+      "baseline_upper": 0.06423038232315985,
+      "gap_lower": 0.009467751933145923
+    },
+    {
+      "architecture": "chain",
+      "assisted_exact": "88304155235888529/1152921504606846976",
+      "baseline_upper": 0.06564647659366649,
+      "gap_lower": 0.010945168963331585
+    },
+    {
+      "architecture": "cycle",
+      "assisted_exact": "43688972740553091/576460752303423488",
+      "baseline_upper": 0.06457927027504308,
+      "gap_lower": 0.011209016379305162
+    }
+  ],
+  "review_corrections_applied": [
+    "Rigorous extrema use exact dyadic endpoint comparisons rather than float keys.",
+    "Continuous costate interpolation and derivatives are enclosed before conversion to binary64 LP coefficients.",
+    "Uniform mean uses exact T/5; entropy budget is rounded outward in dual constant.",
+    "Raw collocation witnesses are repaired and continuously certified before performance claims."
+  ],
+  "final_guard_review": {
+    "dual_powers_of_two": "Positive N/subdivision powers and exact Fraction time weight equalities verified. Published N64/subdiv128 unchanged.",
+    "proposal_import": "cvxpy is imported inside solve; source-protocol evaluation and replay do not require cvxpy. No mathematical change.",
+    "proposal_module_sha256": "77b4a7745c8d29caf32b70b5880bf5ceb4475b0248263a1200f13d85c777dd17",
+    "frontier": "Uniform mixture slew predicate reviewed;42 continuous-primal predicates accepted.",
+    "independent_copy_probability": "For independent copies, the common-tilt MGF factorizes; the 10-copy wrong-direction Chernoff bound is the tenth power of the enclosed one-copy MGF upper bound. Arb power is valid. Star terminal |aux count|>=12 has exact probability zero by bridge support."
+  },
+  "final_manuscript_review": {
+    "status": "PASS",
+    "scope": "Central theorem statements, certificate semantics, protocol-family separation, finite/asymptotic variance, independent-copy scaling and quantitative tables reviewed.",
+    "edits": [
+      "Guaranteed gain lower bounds rounded downward to16.6728% and17.3569% in detailed convex table.",
+      "Abstract baseline ceiling uses outward display.",
+      "ODE replay agreement rounded conservatively to5e-16."
+    ]
+  }
+}

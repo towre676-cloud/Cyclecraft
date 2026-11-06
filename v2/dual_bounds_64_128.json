@@ -1,0 +1,74 @@
+[
+  {
+    "architecture": "star",
+    "continuous_upper": 0.06423038232315983,
+    "subintervals": 8192,
+    "subdivisions_per_control_interval": 128,
+    "entropy_multiplier": 0.20907936659838605,
+    "activity_multiplier": 0.04888525100300266,
+    "mean_multiplier": [
+      -0.00874408477187849,
+      -0.006126251601109723,
+      -0.006126246164687866,
+      0.2299852573444462,
+      0.22998538358263712
+    ],
+    "phi_sign": -1,
+    "phi_style": "endpoint",
+    "epigraph_upper": 64.0,
+    "jeffreys_box_upper": 21.88197561959271,
+    "epigraph_bound_reason": "x_i between exp(-energy_bound)*p_floor and exp(energy_bound)",
+    "max_LP_dual_residual_correction_coefficient": 5.086134524656672e-08,
+    "arb_precision_bits": 100,
+    "method": "continuous occupation dual; interval coefficient bounds; Jeffreys entropy supporting planes; LP dual residual box correction",
+    "seconds": 23.688932689001376
+  },
+  {
+    "architecture": "chain",
+    "continuous_upper": 0.06564647659366647,
+    "subintervals": 8192,
+    "subdivisions_per_control_interval": 128,
+    "entropy_multiplier": 0.2214402542419888,
+    "activity_multiplier": 0.03962351390589755,
+    "mean_multiplier": [
+      -0.013505668204354601,
+      -0.013505669213302894,
+      -0.013505665374336704,
+      0.7407896378965535,
+      -0.39056671418240846
+    ],
+    "phi_sign": -1,
+    "phi_style": "endpoint",
+    "epigraph_upper": 64.0,
+    "jeffreys_box_upper": 21.88197561959271,
+    "epigraph_bound_reason": "x_i between exp(-energy_bound)*p_floor and exp(energy_bound)",
+    "max_LP_dual_residual_correction_coefficient": 2.2004694189976846e-16,
+    "arb_precision_bits": 100,
+    "method": "continuous occupation dual; interval coefficient bounds; Jeffreys entropy supporting planes; LP dual residual box correction",
+    "seconds": 23.445851630996913
+  },
+  {
+    "architecture": "cycle",
+    "continuous_upper": 0.06457927027504307,
+    "subintervals": 8192,
+    "subdivisions_per_control_interval": 128,
+    "entropy_multiplier": 0.21623628728509903,
+    "activity_multiplier": 0.048892965919049305,
+    "mean_multiplier": [
+      -0.005972224225354385,
+      -0.0059722223979780656,
+      -0.005972219890312162,
+      0.22969775892384256,
+      0.22853702835895345
+    ],
+    "phi_sign": -1,
+    "phi_style": "endpoint",
+    "epigraph_upper": 64.0,
+    "jeffreys_box_upper": 21.88197561959271,
+    "epigraph_bound_reason": "x_i between exp(-energy_bound)*p_floor and exp(energy_bound)",
+    "max_LP_dual_residual_correction_coefficient": 2.5080085792324655e-16,
+    "arb_precision_bits": 100,
+    "method": "continuous occupation dual; interval coefficient bounds; Jeffreys entropy supporting planes; LP dual residual box correction",
+    "seconds": 25.76194738400227
+  }
+]

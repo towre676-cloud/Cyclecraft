@@ -1,0 +1,251 @@
+{
+  "sources": [
+    {
+      "key": "rahav2008",
+      "authors": "Saar Rahav, Jordan Horowitz, Christopher Jarzynski",
+      "title": "Directed flow in non-adiabatic stochastic pumps",
+      "year": 2008,
+      "journal": "Physical Review Letters 101, 140602",
+      "url": "https://arxiv.org/abs/0808.0015",
+      "full_text_url": "https://arxiv.org/html/0808.0015v2",
+      "doi": "10.1103/PhysRevLett.101.140602",
+      "web_refs": [
+        "turn3view1",
+        "turn7view0"
+      ],
+      "supports": "Arrhenius parametrization, nonadiabatic excess-current decomposition, no-pumping theorem, adiabatic geometric flow."
+    },
+    {
+      "key": "sinitsyn2007",
+      "authors": "N. A. Sinitsyn, I. Nemenman",
+      "title": "The unified geometric theory of mesoscopic stochastic pumps and reversible ratchets",
+      "year": 2007,
+      "journal": "Physical Review Letters 99, 220408",
+      "url": "https://arxiv.org/abs/0705.2057",
+      "doi": "10.1103/PhysRevLett.99.220408",
+      "web_refs": [
+        "turn3view0"
+      ],
+      "supports": "Geometric contributions to mesoscopic pump kinetics and counting statistics."
+    },
+    {
+      "key": "avron2012",
+      "authors": "J. E. Avron, M. Fraas, G. M. Graf, P. Grech",
+      "title": "Adiabatic theorems for generators of contracting evolutions",
+      "year": 2012,
+      "journal": "Communications in Mathematical Physics",
+      "url": "https://arxiv.org/abs/1106.4661",
+      "full_text_url": "https://arxiv.org/html/1106.4661v2",
+      "doi": "10.1007/s00220-012-1504-1",
+      "web_refs": [
+        "turn6view0",
+        "turn7view3",
+        "turn9view1"
+      ],
+      "supports": "Reduced-inverse adiabatic expansion; Theorem 20 Eq.42 explicitly gives pi+epsilon L^(-1) dot(pi)+O(epsilon^2)."
+    },
+    {
+      "key": "schnakenberg1976",
+      "authors": "J. Schnakenberg",
+      "title": "Network theory of microscopic and macroscopic behavior of master equation systems",
+      "year": 1976,
+      "journal": "Reviews of Modern Physics 48, 571",
+      "url": "https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.48.571",
+      "doi": "10.1103/RevModPhys.48.571",
+      "web_refs": [
+        "turn6view2"
+      ],
+      "supports": "Graph network treatment, Kirchhoff steady states, flux-force thermodynamics and cycle currents."
+    },
+    {
+      "key": "gunawardena2012",
+      "authors": "Jeremy Gunawardena",
+      "title": "A Linear Framework for Time-Scale Separation in Nonlinear Biochemical Systems",
+      "year": 2012,
+      "journal": "PLOS ONE 7(5), e36321",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0036321",
+      "doi": "10.1371/journal.pone.0036321",
+      "web_refs": [
+        "turn11view3"
+      ],
+      "supports": "Positive rooted spanning-tree stationary formula, exact graph-based elimination; canonical source lines217-222."
+    },
+    {
+      "key": "jiang2011",
+      "authors": "Xiaoye Jiang, Lek-Heng Lim, Yuan Yao, Yinyu Ye",
+      "title": "Statistical ranking and combinatorial Hodge theory",
+      "year": 2011,
+      "journal": "Mathematical Programming 127, 203-244",
+      "url": "https://arxiv.org/abs/0811.1067",
+      "doi": "10.1007/s10107-010-0419-x",
+      "web_refs": [
+        "turn6view1"
+      ],
+      "supports": "Orthogonal gradient/cycle decomposition of edge flows. Its statistical application differs from the present physical use."
+    },
+    {
+      "key": "chernyak2008",
+      "authors": "V. Y. Chernyak, N. A. Sinitsyn",
+      "title": "Pumping-Restriction Theorem for Stochastic Networks",
+      "year": 2008,
+      "journal": "Physical Review Letters 101, 160601",
+      "url": "https://arxiv.org/abs/0808.0205",
+      "full_text_url": "https://arxiv.org/html/0808.0205v3",
+      "doi": "10.1103/PhysRevLett.101.160601",
+      "web_refs": [
+        "turn8view0",
+        "turn12view1"
+      ],
+      "supports": "Exact nonperturbative topological restrictions; integrated bridge currents vanish; driven-subgraph restrictions."
+    },
+    {
+      "key": "lebowitz1999",
+      "authors": "Joel L. Lebowitz, Herbert Spohn",
+      "title": "A Gallavotti-Cohen Type Symmetry in the Large Deviation Functional for Stochastic Dynamics",
+      "year": 1999,
+      "journal": "Journal of Statistical Physics 95, 333-365",
+      "url": "https://arxiv.org/abs/cond-mat/9811220",
+      "doi": "10.1023/A:1004589714161",
+      "web_refs": [
+        "turn6view4"
+      ],
+      "supports": "Markov jump fluctuation theory, entropy production, Green-Kubo and Onsager connections under local detailed balance."
+    },
+    {
+      "key": "sivak2012",
+      "authors": "David A. Sivak, Gavin E. Crooks",
+      "title": "Thermodynamic metrics and optimal paths",
+      "year": 2012,
+      "journal": "Physical Review Letters 108, 190602",
+      "url": "https://arxiv.org/abs/1201.4166",
+      "full_text_url": "https://arxiv.org/html/1201.4166v2",
+      "doi": "10.1103/PhysRevLett.108.190602",
+      "web_refs": [
+        "turn3view2",
+        "turn7view1",
+        "turn9view3"
+      ],
+      "supports": "Time-integrated force covariance friction tensor Eq.12, quadratic excess power Eq.13, thermodynamic length and constant excess-power optimal protocols."
+    },
+    {
+      "key": "barato2018",
+      "authors": "Andre C. Barato, Raphael Chetrite",
+      "title": "Current fluctuations in periodically driven systems",
+      "year": 2018,
+      "journal": "Journal of Statistical Mechanics 2018, 053207",
+      "url": "https://arxiv.org/abs/1802.09896",
+      "full_text_url": "https://arxiv.org/html/1802.09896v2",
+      "doi": "10.1088/1742-5468/aabfc5",
+      "web_refs": [
+        "turn6view3",
+        "turn7view2"
+      ],
+      "supports": "Tilted generator monodromy, maximal Floquet exponent as SCGF, mean current and diffusion coefficient; includes molecular pump example."
+    },
+    {
+      "key": "tam2007",
+      "authors": "Daniel Tam, A. E. Hosoi",
+      "title": "Optimal Stroke Patterns for Purcell's Three-Link Swimmer",
+      "year": 2007,
+      "journal": "Physical Review Letters 98, 068105",
+      "url": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.98.068105",
+      "doi": "10.1103/PhysRevLett.98.068105",
+      "web_refs": [
+        "turn12view0"
+      ],
+      "supports": "Established geometric stroke optimization as adjacent motivation; do not attribute our exact stochastic singular-value formula to this source."
+    },
+    {
+      "key": "chernyak2009",
+      "authors": "V. Y. Chernyak, N. A. Sinitsyn",
+      "title": "Robust quantization of a molecular motor motion in a stochastic environment",
+      "year": 2009,
+      "journal": "Journal of Chemical Physics 131, 181101",
+      "url": "https://arxiv.org/abs/0906.3032",
+      "doi": "10.1063/1.3263821",
+      "web_refs": [
+        "turn12view2"
+      ],
+      "supports": "Known low-temperature adiabatic pump quantization, relevant for future robust design; finite-temperature numerical near-integer values alone are not a quantization theorem."
+    },
+    {
+      "key": "brandner2015",
+      "authors": "Kay Brandner, Keiji Saito, Udo Seifert",
+      "title": "Thermodynamics of Micro- and Nano-Systems Driven by Periodic Temperature Variations",
+      "year": 2015,
+      "journal": "Physical Review X 5, 031019",
+      "url": "https://arxiv.org/abs/1505.07771",
+      "doi": "10.1103/PhysRevX.5.031019",
+      "web_refs": [
+        "turn8view4"
+      ],
+      "supports": "Periodic microscopic engines, entropy-current organization and power-efficiency limitations; useful extension rather than essential fixed-temperature theorem."
+    },
+    {
+      "key": "berglund2010",
+      "authors": "Nils Berglund and Barbara Gentz",
+      "title": "The Eyring–Kramers law for potentials with nonquadratic saddles",
+      "year": 2010,
+      "journal": "Markov Processes and Related Fields 16, 549–598",
+      "url": "https://arxiv.org/abs/0807.1681",
+      "supports": "Metastable Brownian transition times, barrier exponential, curvature-dependent prefactor and degeneracy corrections.",
+      "verified": "Original paper abstract opened and read."
+    },
+    {
+      "key": "dechant2022",
+      "authors": "Andreas Dechant",
+      "title": "Minimum entropy production, detailed balance and Wasserstein distance for continuous-time Markov processes",
+      "year": 2022,
+      "journal": "Journal of Physics A 55, 094001",
+      "url": "https://arxiv.org/abs/2110.01141"
+    },
+    {
+      "key": "impens2025",
+      "authors": "François Impens, Felippo M. D’Angelis, David Guéry-Odelin, Felipe A. Pinheiro, Caio Lewenkopf",
+      "title": "Optimal control over the full counting statistics in a non-adiabatic pump",
+      "year": 2025,
+      "journal": "Physical Review Research 7, 033253",
+      "url": "https://arxiv.org/abs/2503.14614"
+    },
+    {
+      "key": "wachtel2015",
+      "authors": "Artur Wachtel, Jürgen Vollmer, Bernhard Altaner",
+      "title": "Fluctuating currents in stochastic thermodynamics. I. Gauge invariance of asymptotic statistics",
+      "year": 2015,
+      "journal": "Physical Review E 92, 042132",
+      "url": "https://journals.aps.org/pre/abstract/10.1103/PhysRevE.92.042132"
+    },
+    {
+      "key": "koyuk2019",
+      "authors": "Timur Koyuk, Udo Seifert",
+      "title": "Operationally accessible bounds on fluctuations and entropy production in periodically driven systems",
+      "year": 2019,
+      "journal": "Physical Review Letters 122, 230601",
+      "url": "https://arxiv.org/abs/1904.08807"
+    },
+    {
+      "key": "ilker2022",
+      "authors": "Efe Ilker, Özenç Güngör, Benjamin Kuznets-Speck, Joshua Chiel, Sebastian Deffner, Michael Hinczewski",
+      "title": "Shortcuts in Stochastic Systems and Control of Biophysical Processes",
+      "year": 2022,
+      "journal": "Physical Review X 12, 021048",
+      "url": "https://journals.aps.org/prx/abstract/10.1103/PhysRevX.12.021048"
+    },
+    {
+      "key": "johansson2017",
+      "authors": "Fredrik Johansson",
+      "title": "Arb: Efficient Arbitrary-Precision Midpoint-Radius Interval Arithmetic",
+      "year": 2017,
+      "journal": "ACM Transactions on Mathematical Software 43(3), Article 22",
+      "url": "https://arxiv.org/abs/1611.02831"
+    },
+    {
+      "key": "maas2011",
+      "authors": "Jan Maas",
+      "title": "Gradient flows of the entropy for finite Markov chains",
+      "year": 2011,
+      "journal": "Journal of Functional Analysis 261, 2250–2292",
+      "url": "https://arxiv.org/abs/1102.5238"
+    }
+  ]
+}

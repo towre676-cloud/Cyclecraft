@@ -1,0 +1,6 @@
+.volume{font-size:.48em;letter-spacing:-.03em;color:var(--accent);margin-left:12px}.hero-figure canvas#storage-hero{height:440px}.hero-formula{font-size:1em}.certificate,.certificate-block{border-left:3px solid var(--accent);padding-left:22px;margin:28px 0}.proof{margin:24px 0}.storage-figure canvas#certificate-canvas{height:380px}.precision-number p{font:12px/1.8 'Courier New',monospace;overflow-wrap:anywhere}.katex{max-width:100%}.precision-grid b{font-variant-numeric:tabular-nums}
+@media(max-width:700px){.volume{display:block;font-size:.4em;letter-spacing:.04em;margin:12px 0 0 2px}.hero-figure canvas#storage-hero{height:380px}.hero-formula{font-size:.78em}.storage-figure canvas#certificate-canvas{height:400px}.certificate,.certificate-block{padding-left:14px}}
+@media print{.hero-figure canvas#storage-hero{height:230pt}.volume{display:inline;font-size:.45em}.certificate,.certificate-block{break-inside:avoid}}
+
+/* Keep the visually hidden MathML accessibility layer out of page overflow. */
+.katex .katex-mathml{position:fixed!important;left:0!important;top:0!important}.storage-plate{white-space:normal}

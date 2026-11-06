@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "width": 320,
+      "scroll": 320,
+      "math": 609,
+      "mathErrors": 0,
+      "brokenAnchors": [],
+      "canvasCount": 6,
+      "dark": true,
+      "rootInk": "#eee9dd",
+      "pageErrors": [],
+      "networkRequests": [],
+      "pass": true
+    },
+    {
+      "width": 390,
+      "scroll": 390,
+      "math": 609,
+      "mathErrors": 0,
+      "brokenAnchors": [],
+      "canvasCount": 6,
+      "dark": true,
+      "rootInk": "#eee9dd",
+      "pageErrors": [],
+      "networkRequests": [],
+      "pass": true
+    },
+    {
+      "width": 768,
+      "scroll": 768,
+      "math": 609,
+      "mathErrors": 0,
+      "brokenAnchors": [],
+      "canvasCount": 6,
+      "dark": true,
+      "rootInk": "#eee9dd",
+      "pageErrors": [],
+      "networkRequests": [],
+      "pass": true
+    },
+    {
+      "width": 1280,
+      "scroll": 1280,
+      "math": 609,
+      "mathErrors": 0,
+      "brokenAnchors": [],
+      "canvasCount": 6,
+      "dark": true,
+      "rootInk": "#eee9dd",
+      "pageErrors": [],
+      "networkRequests": [],
+      "pass": true,
+      "sourceFiles": 27,
+      "downloadHashPass": true
+    },
+    {
+      "reducedMotionPaused": true,
+      "pass": true
+    }
+  ]
+}

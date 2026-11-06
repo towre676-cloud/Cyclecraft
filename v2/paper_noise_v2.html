@@ -1,0 +1,191 @@
+<section id="noise-geometry-v2">
+<div class="section-number">THE GEOMETRY OF PRECISION</div>
+<h2>Cycle noise, bounded storage and the cost of fast kinetics</h2>
+<p>The occupation holonomy determines mean transport. A complete operating specification also needs its fluctuations, including their correlations across successive driving periods. These quantities live naturally on the graph’s cycle quotient. A potential difference assigned to each jump telescopes into an endpoint occupation observable; a genuine cycle count accumulates over repeated operation. This distinction makes auxiliary topology a precision resource. It also explains why a chamber constrained to have zero mean circulation can retain a nonzero winding variance, whereas a pendant tree admits stronger, pathwise bounds on its signed auxiliary counts.</p>
+<p>We use the same oriented graph and column generator as in the transport calculus. Let \(\mathsf N_e(t)\) denote the signed crossing count on edge \(e\), initialized at zero, and let \(c\in\mathbb R^m\) be a time-independent edge counting cochain. Its observable is \(\mathsf N_c=c^T\mathsf N\). Rates are periodic with period \(T\), positive on a fixed connected graph and bounded on each period. The initial distribution is the unique periodic law at the chosen starting phase. These assumptions include continuous protocols and the held protocols used for the interval certificates. Define</p>
+<div class="equation">\[
+\mu_c=\mathbb E\mathsf N_c(T),\qquad
+V_c=\lim_{n\to\infty}\frac1n\,mathrm{Var}\bigl[\mathsf N_c(nT)\bigr].
+\]</div>
+<p>The covariance matrix \(V_{\mathrm{edge}}\) is defined by \(V_c=c^TV_{\mathrm{edge}}c\). It is an asymptotic variance <em>per driving period</em>. A one-period variance and a finite-horizon variance are separate observables, calculated directly by the moment propagators. The periodic Floquet construction gives the same asymptotic object through derivatives of the logarithm of its tilted Perron eigenvalue <a href="#ref-barato2018">[Barato–Chetrite]</a>. The following corrector construction supplies an independent route and an explicit graph decomposition.</p>
+
+<h3>A periodic corrector turns counts into a martingale</h3>
+<p>For a jump from state \(i\) to state \(j\), write \(c_{ij}\) for the signed count increment and \(k_{j\leftarrow i}\) for its rate. The instantaneous conditional drift of the count is</p>
+<div class="equation">\[
+b_c(i,t)=\sum_{j\ne i}k_{j\leftarrow i}(t)c_{ij},\qquad
+\bar b_c=\frac{\mu_c}{T}.
+\]</div>
+<p>Choose a periodic state function \(u_c(i,t)\) solving the backward Poisson equation</p>
+<div class="equation">\[
+\boxed{
+(\partial_t+K^T)u_c=\bar b_c\mathbf1-b_c,
+\qquad u_c(T)=u_c(0).
+}
+\]</div>
+<p>The compatibility condition follows by integrating against the periodic probability law. Indeed, \(d(p^Tu_c)/dt=p^T(\partial_t+K^T)u_c\); integration over a period gives zero, exactly because \(\int_0^Tp^Tb_c\,dt=\mu_c\). Irreducibility gives a solution unique up to one additive constant. A normalization such as \(p(0)^Tu_c(0)=0\) fixes that freedom.</p>
+<p>Now combine the count with its endpoint correction:</p>
+<div class="equation">\[
+\mathcal M_c(t)=\mathsf N_c(t)+u_c(X_t,t)-u_c(X_0,0)-\bar b_ct.
+\]</div>
+<p>The backward equation cancels its conditional drift, so \(\mathcal M_c\) is a martingale. Its increment at a jump along an oriented edge is \(c_e+(D^Tu_c)_e\). Introduce the opposing traffic on that edge, counting both forward and reverse transitions,</p>
+<div class="equation">\[
+a_e=p_i k_{j\leftarrow i}+p_j k_{i\leftarrow j}
+=q_e(x_i+x_j),\qquad A=\mathrm{diag}(a_e).
+\]</div>
+<div class="theorem"><h3>Exact theorem. Periodic current covariance</h3>
+<p>The asymptotic variance per period is</p>
+<div class="equation">\[
+\boxed{
+V_c=\int_0^T\sum_e a_e(t)
+\bigl[c_e+(D^Tu_c(t))_e\bigr]^2\,dt.
+}
+\]</div>
+<p>For two cochains, replace the square by the product of their corrected increments to obtain their cross-covariance.</p>
+<p><strong>Proof.</strong> The expected predictable quadratic variation of \(\mathcal M_c\) is the integral of squared jump increments times their probability fluxes. Periodicity makes that expectation over \(n\) periods equal to \(n\) copies of the displayed integral. The correction \(u_c(X_t,t)-u_c(X_0,0)\) is bounded uniformly in time. Its variance divided by \(n\) vanishes, and its covariance with the martingale divided by \(n\) vanishes by Cauchy–Schwarz. Thus the count and corrected martingale have the same asymptotic covariance rate.</p></div>
+<p>This expression is computationally useful: one periodic backward solve is needed for each independent counting observable. It avoids differencing nearby tilted eigenvalues. In the numerical program, the Poisson covariance is compared with analytic first and second derivatives of the Floquet propagator. Those calculations use different differential equations and expose different numerical errors.</p>
+
+<h3>A graph floor and a nonnegative dynamical excess</h3>
+<p>At a fixed time, minimize the corrected jump energy over all vertex potentials \(\phi\):</p>
+<div class="equation">\[
+\min_\phi(c+D^T\phi)^TA(c+D^T\phi).
+\]</div>
+<p>The minimizer solves \(DAD^T\phi=-DAc\). A convenient representative and the resulting edge matrix are</p>
+<div class="equation">\[
+\begin{aligned}
+\phi_c^*&=-(DAD^T)^+DAc,\\
+R_A&=A-AD^T(DAD^T)^+DA.
+\end{aligned}
+\]</div>
+<p>Let \(C\) be any full-column-rank cycle basis, so \(DC=0\). Weighted orthogonal decomposition gives the equivalent formula</p>
+<div class="equation">\[
+\boxed{R_A=C(C^TA^{-1}C)^{-1}C^T.}
+\]</div>
+<p>The result is independent of the selected basis. It measures the component of a counting cochain that cannot be removed by a vertex-potential correction. Completing the square in the martingale formula yields an exact separation:</p>
+<div class="equation">\[
+\begin{aligned}
+V_c={}&\int_0^T c^TR_Ac\,dt\\
+&+\int_0^T
+(u_c-\phi_c^*)^TDAD^T(u_c-\phi_c^*)\,dt.
+\end{aligned}
+\]</div>
+<p>Both terms are nonnegative. The first is an instantaneous traffic-weighted cycle floor. The second records the additional cost of requiring one corrector to satisfy the full periodic dynamics. Equivalently, in Loewner order,</p>
+<div class="equation">\[
+\boxed{
+V_{\mathrm{edge}}\succeq
+\int_0^T C\bigl[C^TA(t)^{-1}C\bigr]^{-1}C^T\,dt.
+}
+\]</div>
+<p>Frozen detailed balance attains this floor. There \(x_i=1/Z_E\), so \(A=2Q/Z_E\), and the backward Poisson solution is the weighted least-squares minimizer. The covariance per unit time becomes</p>
+<div class="equation">\[
+\frac{V_{\mathrm{edge}}}{T}
+=\frac2{Z_E}\left(Q-QD^TL^+DQ\right).
+\]</div>
+<p>The independent rational audit verifies this equality through tilted-generator eigenvalue perturbations, backward Poisson correctors and the cycle-resistance formula. All three matrices agree exactly in 15 rational cases, comprising 210 algebraic checks. A separate retained-sample review evaluates the smooth graph floors by cycle resistances rather than a Laplacian inverse; its nine cases agree with the adaptive corrector calculation.</p>
+
+<h3>The cycle quotient distinguishes a fence from a storage branch</h3>
+<div class="theorem"><h3>Exact theorem. The rank of accumulating current noise</h3>
+<p>For the fixed connected graph with positive periodic traffic,</p>
+<div class="equation">\[
+\boxed{
+\ker V_{\mathrm{edge}}=\mathrm{im}\,D^T,
+\qquad
+\mathrm{rank}\,V_{\mathrm{edge}}=m-n+1.
+}
+\]</div>
+<p><strong>Proof.</strong> If the variance vanishes, positivity of the traffic forces every corrected jump increment to vanish almost everywhere. Hence \(c=-D^Tu_c(t)\), placing \(c\) in the graph-gradient space. Conversely, if \(c=D^T\psi\), then \(\mathsf N_c(t)=\psi(X_t)-\psi(X_0)\), a bounded endpoint observable. Its variance and covariance rates therefore vanish. The gradient space has dimension \(n-1\), which gives the rank.</p></div>
+<p>Gauge invariance and cycle coordinates for stationary counting statistics are established in the stochastic-thermodynamics literature <a href="#ref-wachtel2015">[Wachtel–Vollmer–Altaner]</a>. The periodic corrector and graph floor make their design implications explicit here. Barrier families can restrict the space of accessible <em>mean</em> currents while the full cycle quotient still supports accumulating noise. A mean fence constrains drift; auxiliary topology determines whether another winding coordinate exists.</p>
+<p>For the five-state architectures, the cycle auxiliary has six edges and two independent graph cycles, so its full edge covariance has rank two. The star and chain auxiliaries each have five edges and retain only the productive core cycle, giving rank one. All their auxiliary edges are bridges. If \(S_e\) is the component on the head side of a bridge, the stronger identity is</p>
+<div class="equation">\[
+\boxed{
+\mathsf N_e(t)=
+\mathbf1_{\{X_t\in S_e\}}-
+\mathbf1_{\{X_0\in S_e\}}
+\in\{-1,0,1\}.
+}
+\]</div>
+<p>The bound is pathwise and uniform over observation duration. Auxiliary transition traffic, occupation excursions and finite-horizon variance remain present. What vanishes is the auxiliary diffusion rate: its finite variance stays bounded instead of accumulating proportionally to the number of periods. The target count retains its genuine cycle noise and remains part of the precision optimization.</p>
+<p>The graph floor quantifies the corresponding cyclic alternative. In an auxiliary triangle with traffic \(a_e\), a cochain counting one oriented chord has</p>
+<div class="equation">\[
+V_R\ge
+\int_0^T\frac{dt}{\sum_{e\in R}a_e(t)^{-1}}>0.
+\]</div>
+<p>This is compatible with exact zero mean auxiliary circulation. It provides a positive floor determined by the actual traffic. Topology alone gives the rank statement; a quantitative numerical floor also requires the positive traffic values. The distinction matters when comparing a weakly connected chamber with one that exchanges occupation rapidly.</p>
+
+<h3>Endpoint fluctuations remain finite observables</h3>
+<p>A zero diffusion rate is a precise long-time statement, not a replacement for the finite-time calculation. For a bridge, let \(Y_t=\mathbf1_{\{X_t\in S_e\}}\), so \(\mathsf N_e(t)=Y_t-Y_0\). At an integer number of periods, write \(r=p_0(S_e)\) and \(P_n(i,j)\) for the transition probability from \(i\) to \(j\) over \(nT\). Periodicity gives \(\mathbb EY_{nT}=\mathbb EY_0=r\), and therefore</p>
+<div class="equation">\[
+\mathrm{Var}\bigl[\mathsf N_e(nT)\bigr]
+=2r-2\sum_{i,j\in S_e}p_{0,i}P_n(i,j).
+\]</div>
+<p>This is an ordinary transition-probability formula, independent of the tilted moment equations. It gives a useful cross-check of the finite-horizon bridge variance. As the period propagator mixes, the joint probability in the sum approaches \(r^2\), so the variance approaches \(2r(1-r)\). It saturates while the observation horizon grows. Every finite-horizon distribution remains supported on the three values \(-1,0,1\), even though the number of forward and backward transitions can be large.</p>
+<p>At a general stopping phase, the two endpoint probabilities can differ. The expected bridge count then equals the change of stored occupation, and its variance is obtained from the same two endpoint indicators. In particular, the pathwise bound does not require periodic initialization, frozen barriers or a slowly varying protocol. Periodicity is required for the zero mean over complete periods, whereas the storage identity follows directly from the graph cut for every realization.</p>
+<p>For several tree edges, the endpoint potentials are correlated component indicators. Their finite covariance matrix describes how storage is shared among branches. The asymptotic covariance rate of the whole vector is zero because the vector remains bounded. This does not remove the finite covariance of storage with useful transport over a short experiment. The complete moment propagation retains those endpoint correlations, and the operating specification can constrain them if the readout resolves storage states as well as target counts.</p>
+<p>The same distinction is important for an ensemble. Independent copies add finite variances and target means in the usual way. A per-copy auxiliary bound becomes an ensemble bound proportional to the number of copies; it does not imply that a large ensemble has an identically fixed storage occupation. The architecture prevents accumulated auxiliary winding while allowing the occupation response needed for assistance.</p>
+
+<h3>Counting coordinates and the complete asymptotic statistics</h3>
+<p>The cycle quotient controls more than the second cumulant. Replace a cochain by \(c'=c+D^T\psi\), where \(\psi\) is a fixed vertex potential. With \(S_\theta=\mathrm{diag}(e^{\theta\psi_i})\), the corresponding tilted generators and period propagators satisfy</p>
+<div class="equation">\[
+K_{\theta,c'}=S_\theta K_{\theta,c}S_\theta^{-1},
+\qquad
+M_{\theta,c'}=S_\theta M_{\theta,c}S_\theta^{-1}.
+\]</div>
+<p>The escape-rate diagonals are unchanged by the similarity transformation. The Floquet eigenvalues are identical, so the long-time cumulant-generating function depends only on the cochain’s class modulo graph gradients. This is the periodic form of the same counting gauge represented by the endpoint identity. It explains why a convenient chord basis can be used for asymptotic current calculations without changing their physical winding content.</p>
+<p>Finite-horizon generating functions retain the initial and final vectors, so the boundary term must be kept there. Counting one chord of a triangle and averaging the three oriented edge counts have the same long-time circulation and asymptotic cumulants, but their finite counts differ by a bounded occupation term. Their integer support and threshold events can consequently differ. Every finite-risk calculation in the program declares the monitored edge explicitly and uses that same jump observable in its tilted or absorbing-count generator.</p>
+<p>The cycle representation also improves numerical conditioning. If there are \(r=m-n+1\) independent cycles, the graph floor requires inversion of the positive \(r\times r\) matrix \(C^TA^{-1}C\). This avoids subtracting nearly equal terms in a full edge projection. For edge-disjoint triangles, it reduces to the harmonic resistance of each cycle. For overlapping cycles, its off-diagonal entries retain their shared-edge coupling. A change of cycle basis changes the matrix coordinates by congruence and leaves the edge-space floor unchanged.</p>
+<p>The full periodic corrector is still needed for the dynamical excess. Its contribution can couple observables even when their instantaneous floor separates into disjoint-cycle blocks. The program therefore uses the cycle formula as an independent lower-bound calculation and the Poisson and Floquet equations for the actual covariance. Agreement of those routes is a stronger validation than a positive numerical variance alone.</p>
+
+<h3>Mean-preserving kinetic acceleration has a precision cost</h3>
+<p>The inverse occupation family exposes a clean tradeoff. Fix a smooth interior periodic path \(p(t)\) and a positive periodic barrier schedule \(q(t)\). Write \(v=L^+\dot p\), and choose a constant \(\alpha\) larger than every component of \(v\). The realization</p>
+<div class="equation">\[
+x_\alpha=\alpha\mathbf1-v,\qquad
+E_{i,\alpha}=\log\frac{\alpha-v_i}{p_i}
+\]</div>
+<p>preserves the actual occupation path and mean current \(j=-QD^Tv\). Increasing \(\alpha\) raises opposing transition traffic. It also reduces the entropy needed for that fixed redistribution. The general possibility of small entropy at divergent activity is established in Markov optimal transport <a href="#ref-dechant2022">[Dechant]</a>; this occupation representation lets us calculate its counting consequence directly.</p>
+<p>Assume the graph and period are fixed, \(p\) stays in a compact interior subset of the simplex, and \(q\) is bounded above and below by positive constants. Then \(v\) is bounded. Uniform expansion gives</p>
+<div class="equation">\[
+\begin{aligned}
+\Sigma_\alpha&=
+\frac{\mathcal E}{\alpha}+O(\alpha^{-2}),\\
+\mathcal E&=\int_0^Tj^TQ^{-1}j\,dt,\\
+a_{e,\alpha}&=q_e(2\alpha-v_i-v_j).
+\end{aligned}
+\]</div>
+<p>Define \(R_Q=C(C^TQ^{-1}C)^{-1}C^T\) and \(\mathcal N_c=\int_0^Tc^TR_Qc\,dt\). Applying the graph floor to the last traffic expression gives a constant \(B_c\), independent of sufficiently large \(\alpha\), such that</p>
+<div class="equation">\[
+\boxed{
+V_{c,\alpha}\ge2\alpha\mathcal N_c-B_c,
+\qquad
+\liminf_{\alpha\to\infty}\Sigma_\alpha V_{c,\alpha}
+\ge2\mathcal E\mathcal N_c.
+}
+\]</div>
+<p>For a nongradient count, \(\mathcal N_c>0\). Thus mean-preserving acceleration can drive modeled dissipation downward while forcing cycle noise upward at least linearly. If the useful mean count is fixed and nonzero, the required long-time exposure for a fixed signal-to-noise ratio grows at least linearly as well. This establishes a precision cost for that acceleration route without assuming monotonicity of the exact variance at every finite \(\alpha\).</p>
+
+<h3>From asymptotic precision to a finite operating horizon</h3>
+<p>A specified observation horizon is handled by the propagator itself. Let \(M_\theta\) be the one-period tilted matrix for a count and \(p_0\) the periodic initial law. Then</p>
+<div class="equation">\[
+\mathbb E_{p_0}e^{\theta\mathsf N_c(nT)}
+=\mathbf1^TM_\theta^{\,n}p_0,
+\qquad
+\Pr[\mathsf N_c(nT)\ge a]
+\le e^{-\theta a}\mathbf1^TM_\theta^{\,n}p_0
+\quad(\theta>0).
+\]</div>
+<p>Optimizing over admissible tilts tightens the upper bound. A probability that the count <em>ever</em> leaves a tolerance interval uses a different construction: retain state–count pairs \((i,k)\) inside the interval and kill transitions leaving it. The resulting substochastic propagator gives survival directly. It records intermediate excursions even when later transitions cancel their terminal signed count. The separate held-protocol certificates evaluate these finite-horizon objects with outward-rounded matrix exponentials.</p>
+<p>A physical implementation may also contain a weak extra channel that closes an intended storage tree. Let \(\lambda_{\mathrm{short}}(i,t)\) be the total rate of such shortcut transitions from state \(i\), and suppose a calibrated envelope satisfies \(\lambda_{\mathrm{short}}(i,t)\le\varepsilon(t)\) for every state. If \(S(t)\) is survival without any shortcut jump, killing those jumps gives</p>
+<div class="equation">\[
+S'(t)=-\sum_i\lambda_{\mathrm{short}}(i,t)p_i^{\mathrm{safe}}(t)
+\ge-\varepsilon(t)S(t),
+\qquad
+\Pr[\text{a shortcut by }H]\le
+1-\exp\!\left[-\int_0^H\varepsilon(t)dt\right].
+\]</div>
+<p>Every newly enabled auxiliary winding must use at least one of those added channels. Its probability is therefore bounded by this event probability. The bound applies over the stated horizon and for arbitrary motion on the original graph; the existing occupation dynamics need not be solved again to obtain the envelope. A constant envelope gives the simpler bound \(1-e^{-\varepsilon H}\le\varepsilon H\).</p>
+<p>This provides a quantitative manufacturing specification. A correctly connected tree has exact bounded signed counts. A device with calibrated rare closing channels has an explicit horizon-dependent probability of leaving that structural regime. Normal exchange with a storage branch remains part of its intended operation. The certificate concerns the additional winding enabled by the shortcut, which is the topological failure mode relevant to this architecture.</p>
+<p>Periodic uncertainty relations provide another independent comparison. If a fixed phase waveform is traversed with different periods, the response form gives, in the present per-period conventions,</p>
+<div class="equation">\[
+\Sigma(T)V_c(T)\ge
+2\bigl[T\,\partial_T\mu_c(T)\bigr]^2.
+\]</div>
+<p>The derivative holds that phase waveform fixed <a href="#ref-koyuk2019">[Koyuk–Seifert]</a>. Retuning the inverse well protocol to reproduce one occupation path at each period defines another family. In the geometric slow limit, the pumped count per period approaches a constant and the response bound can become weak; the explicit cycle floor continues to describe its traffic noise. Together, the exact graph identities, periodic covariance and finite-horizon propagators give Cyclecraft a precision specification at the same level of detail as its mean transport specification.</p>
+</section>

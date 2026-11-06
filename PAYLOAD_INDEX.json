@@ -1,0 +1,77 @@
+{
+  "sha256": "5f179defa35ddb057c33c973c2278e39e77c58e7b216ca159cc0011b32d41082",
+  "bytes": 12781733,
+  "parts": [
+    "_payload/000.tar.gz.part",
+    "_payload/001.tar.gz.part",
+    "_payload/002.tar.gz.part",
+    "_payload/003.tar.gz.part"
+  ],
+  "files": [
+    {
+      "path": "Cyclecraft_Numerical_Program.zip",
+      "sha256": "811906b2255b89285d02a6aae840af43e9da049e1379e3b0f2be9b8ebe1d64f9",
+      "bytes": 2941168
+    },
+    {
+      "path": "First_Edition/Cyclecraft_V1_Archive.zip",
+      "sha256": "b768396d3d33f55f8011ad74d215f5638ca219537a66663c89392dc4cdcbcb16",
+      "bytes": 2339095
+    },
+    {
+      "path": "_chunks/37a65b643107b6ca0b832d6862b1005c721d736de5c35c200bfa76b7e482c742/000.part",
+      "sha256": "cf061c6d0da17e7ed94d8423dd8dced25da2785fb9f3966990877b8d9de63f2c",
+      "bytes": 4194304
+    },
+    {
+      "path": "_chunks/37a65b643107b6ca0b832d6862b1005c721d736de5c35c200bfa76b7e482c742/001.part",
+      "sha256": "7b149002c0d73b615c91401773a882ecf7ccb0755a4f7d9e1d0fa8e63c4f070e",
+      "bytes": 202588
+    },
+    {
+      "path": "_evidence/8b30012519da61089e115bb4560a1c9f2ca41da0f1f25399355903ce5ad27279.gz",
+      "sha256": "d4fe13264aa92d5c22d94c2247397aac4cd4aeef873758e425e1df8bdabf0b01",
+      "bytes": 105412
+    },
+    {
+      "path": "_evidence/a015347c5d77f409e39415e52e516671f9b621956f6e13305f4c9d9b209c274e.gz",
+      "sha256": "214a0688e182c5fc69cd415d2243fdad9279b5b180cfedb77e74c6b671a2e57f",
+      "bytes": 1578276
+    },
+    {
+      "path": "_evidence/e7af40cfb96bcd3c071bbf551259abdc704c9e4db4f2104f4dc7978c398ad898.gz",
+      "sha256": "1a7a49e007e90f13dbce08f8b337250258c514bcbad9408da0bd0ed608db800c",
+      "bytes": 303704
+    },
+    {
+      "path": "_evidence/f5e63f4c6086cc50c18ec21709a11a924740cd2a5c97c364767a825c07b2aed4.gz",
+      "sha256": "e1f5553b76a65f2725b8a81bb003bd7fe8b20a65ce64c4ac5540b4ce64f95490",
+      "bytes": 816146
+    },
+    {
+      "path": "katex_embedded.css",
+      "sha256": "2af31e361bdaee60b46ba925787631aa0f26f0d0ad621b8826f4d8240682745b",
+      "bytes": 369570
+    },
+    {
+      "path": "v2/noise_geometry_results.json",
+      "sha256": "0507e88837f7cb33acd111d3f1d59ea72bbd4eb65a7e44792256d0b7af0692e0",
+      "bytes": 44554
+    },
+    {
+      "path": "v2/paper_theory_v2.html",
+      "sha256": "0068149246ede52355330a3685ba678ba92240555026794f9d79bff9d06d45c9",
+      "bytes": 35994
+    },
+    {
+      "path": "v2/precision_cert_results.json",
+      "sha256": "3b81411472ccc17b5cb93865b89ac7fa1f0937419678c93116356708ce839c8c",
+      "bytes": 57741
+    },
+    {
+      "path": "v2/tree_exact_results.json",
+      "sha256": "8aec98662ba142248b5a84ae9b35e01767842ff964192bcaecad0fbc6241b2bb",
+      "bytes": 96783
+    }
+  ]
+}

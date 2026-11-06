@@ -1,0 +1,166 @@
+<section id="bounded-synthesis">
+<div class="section-number">BOUNDED FINITE-SPEED SYNTHESIS</div>
+<h2>A continuous compiler with a certified performance gap</h2>
+<p>The storage architecture becomes an engineering result when its advantage survives explicit limits on energy, rates, traffic and actuator speed. The relevant comparison is between an assisted protocol and the strongest admissible controller that keeps the same auxiliary wells fixed. Both controllers receive the same graph, the same gate schedule and the same resource ceilings. The baseline is allowed every active-well waveform in a continuous-time class. A constructive assisted protocol is then compared with an upper bound on that entire class. This converts an optimized example into a <strong>certified separation between two control capabilities</strong>.</p>
+<p>The essential change of variables is to design occupations and occupation-weighted Boltzmann factors directly. Set \(x_i=e^{E_i}p_i\), retain \(Q=\mathrm{diag}(q_e)\), and write \(L=DQD^T\). With a prescribed positive gate schedule, the master equation and current law become</p>
+<div class="equation">\[
+\dot p=-L(t)x,\qquad j=-Q(t)D^Tx,\qquad
+E_i=\log\frac{x_i}{p_i}.
+\]</div>
+<p>The equations are linear in the design variables \(p,x\). Their reconstruction into well energies is performed after the occupation problem has been solved. This retains the exact finite-speed dynamics: there is no adiabatic replacement of \(p\) by \(\pi\). Positivity of \(p,x\) makes the reconstructed rates positive, while explicit bounds prevent the inverse construction from using arbitrarily large kinetic activity.</p>
+<p>Inverse control of Markov networks has a substantial graph-theoretic foundation, including general target distributions and partial control <a href="#ref-ilker2022">[Ilker et al.]</a>. The contribution developed here is a circulation-constrained compiler with fixed transition-state schedules, uniform occupation inventory, compact resource limits and independently checkable upper and lower performance bounds. Its objective is a nonzero current around a closed protocol. A constraint on initial and final distributions alone would not specify that objective, because a periodic pump returns to its initial distribution.</p>
+
+<h3>The exact convex control problem</h3>
+<p>Let \(c\) be a fixed edge-counting vector. In the computations, \(c\) selects active edge \(0\to1\). Periodicity makes its integrated current equal to the current through each of the other two oriented active edges. Define the conductance degree \(d_i(t)=\sum_{e\ni i}q_e(t)\) and target coefficient \(h(t)=-D Q(t)c\). The useful transport and total expected jump count are</p>
+<div class="equation">\[
+J=\int_0^T h(t)^Tx(t)\,dt,
+\qquad
+\mathcal A=\int_0^T d(t)^Tx(t)\,dt.
+\]</div>
+<p>The activity \(\mathcal A\) counts forward and backward transitions on every edge. It includes auxiliary traffic, repeated recrossings and transitions that cancel from the signed output. It is therefore a kinetic resource with a different meaning from either mean current or entropy. The distinction is essential: without a kinetic constraint, a prescribed occupation history can be realized with entropy approaching zero through diverging transition activity <a href="#ref-dechant2022">[Dechant]</a>.</p>
+<p>The dimensionless entropy functional is</p>
+<div class="equation">\[
+\Sigma[x]=\int_0^T f_t(x(t))\,dt,
+\qquad
+f_t(x)=\sum_{e=(i,j)}q_e(t)
+(x_i-x_j)\log\frac{x_i}{x_j}.
+\]</div>
+<p>For positive \(a,b\), the edge function \(g(a,b)=(a-b)\log(a/b)\) is jointly convex. It is the sum of two relative entropies, and its Hessian has the explicit positive form</p>
+<div class="equation">\[
+\nabla^2g(a,b)
+=(a+b)
+\begin{pmatrix}a^{-1}\\-b^{-1}\end{pmatrix}
+\begin{pmatrix}a^{-1}&-b^{-1}\end{pmatrix}
+\succeq0.
+\]</div>
+<p>The weights \(q_e(t)\) are prescribed positive functions, so integration preserves convexity. The same opposing fluxes underlie logarithmic-mean Markov transport geometry <a href="#ref-maas2011">[Maas]</a>. Here the convexity is used as a computational design property: it allows entropy to constrain an exact finite-time current problem.</p>
+<p>Let \(K(t)\) be the pointwise polytope defined by probability normalization, a positive occupation floor, well bounds and escape-rate limits. The last two physical limits become linear inequalities:</p>
+<div class="equation">\[
+\begin{aligned}
+\mathbf1^Tp&=1,&p_i&\ge p_*,\\
+e^{-E_*}p_i&\le x_i\le e^{E_*}p_i,
+&d_i(t)x_i&\le r_*p_i.
+\end{aligned}
+\]</div>
+<p>The escape inequality follows because the total rate out of state \(i\) is \(d_i e^{E_i}=d_i x_i/p_i\). A fixed well \(E_i=0\) is simply the linear equality \(x_i=p_i\). A prescribed well waveform also gives a linear equality, \(x_i=e^{E_i(t)}p_i\). These identities make partial control particularly convenient in the occupation formulation.</p>
+<div class="theorem"><h3>Convex synthesis theorem</h3>
+<p>For a fixed positive gate schedule, maximizing \(J\) over periodic \(p,x\), subject to \(\dot p+Lx=0\), membership in \(K(t)\), the entropy ceiling \(\Sigma\le S\), activity ceiling \(\mathcal A\le A\), and a specified mean occupation \(T^{-1}\int_0^Tp\,dt=\bar p\), is a convex optimization problem.</p>
+<p><strong>Proof.</strong> The objective, dynamics, periodic endpoint condition, mean occupation and activity are linear. The pointwise feasible sets are convex polytopes. The entropy sublevel set is convex by the displayed Hessian calculation. Their intersection is convex, and maximizing a linear functional over it is convex optimization.</p></div>
+<p>The theorem is conditional on the specified gate schedule. Simultaneously choosing arbitrary gates and occupations introduces products of the gate variables with \(x\), and generally loses this convex structure. The present result deliberately fixes the gate hardware command and optimizes the well controller. Its global comparison therefore ranges over all admissible continuous well controls for that command; it does not claim a global optimum over every possible gate waveform.</p>
+
+<h3>Common resources and a stronger frozen-storage comparator</h3>
+<p>The completed benchmark uses five states. The active triangle is \(0\!-!1\!-!2\!-!0\). The auxiliary states form either two leaves \(0\!-!3,0\!-!4\), a chain \(0\!-!3\!-!4\), or the original auxiliary triangle \(0\!-!3\!-!4\!-!0\). In each architecture the baseline may control all three active wells \(E_0,E_1,E_2\). It keeps \(E_3=E_4=0\). Assistance releases those two auxiliary wells into the same finite well box.</p>
+<p>This comparator is broader than the fixed-junction control set used for the local rational examples. It has an independent junction-well actuator and does not require a gate and well to share one control coordinate. The exact local percentages and the finite-speed certified percentages consequently describe distinct, explicitly specified control problems. The finite-speed claim is strengthened by giving the baseline this larger active control set.</p>
+<p>Every protocol must preserve a common mean inventory:</p>
+<div class="equation">\[
+\frac1T\int_0^T p_i(t)\,dt=\frac15,
+\qquad i=0,\ldots,4.
+\]</div>
+<p>The auxiliary chambers therefore cannot be permanently emptied to manufacture an apparent improvement in active transport. Their average occupations are identical in the baseline and assisted classes. Assistance must use the temporal organization of storage and release. The initial probability at the selected phase is optimized as part of the periodic state; it need not be the uniform distribution at that instant.</p>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Resource</th><th>Common value</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Period</td><td>\(T=8\)</td><td>Fixed dimensionless operating duration.</td></tr>
+<tr><td>Entropy ceiling</td><td>\(S=3/20\)</td><td>All modeled well-modulation dissipation.</td></tr>
+<tr><td>Activity ceiling</td><td>\(A=16\)</td><td>Expected jumps on all active and auxiliary edges.</td></tr>
+<tr><td>Well range</td><td>\(|E_i|\le6/5\)</td><td>Identical thermal-unit amplitude limits.</td></tr>
+<tr><td>Escape ceiling</td><td>\(r_i\le6\)</td><td>Prevents arbitrarily fast kinetic bursts.</td></tr>
+<tr><td>Occupation floor</td><td>\(p_i\ge3/200\)</td><td>Keeps the inverse reconstruction uniformly interior.</td></tr>
+<tr><td>Well slew</td><td>\(|\dot E_i|\le20\)</td><td>Finite one-sided slopes at protocol knots.</td></tr>
+<tr><td>Mean inventory</td><td>\(\bar p_i=1/5\)</td><td>Identical average allocation of occupation.</td></tr>
+</tbody></table></div>
+<p>The active conductances on edges \(1\!-!2\) and \(2\!-!0\) are one. Only edge \(0\!-!1\) is gated. Its positive continuous waveform is linear between 64 dyadic knots:</p>
+<div class="equation">\[
+q_{01,k}=\frac1{1024}
+\mathrm{round}\!\left[
+1024\left(1+\frac58\sin\frac{2\pi k}{64}\right)
+\right].
+\]</div>
+<p>The waveform is fixed and shared by each architecture's baseline and assisted comparison. It has minimum \(3/8\) and maximum \(13/8\). The two tree edges each have conductance one. The auxiliary triangle uses \((683,683,682)/1024\), so the sum of its three conductances is exactly two. Thus all three architectures receive the same auxiliary installation-conductance budget. Different connectivity remains a design choice; it is not hidden inside a larger sum of available conductances.</p>
+
+<h3>A continuous-time upper bound that does not trust the optimizer</h3>
+<p>A finite mesh can discover an efficient waveform and a candidate adjoint. Its reported optimum is not automatically an upper bound for the continuous problem. A continuously admissible controller may move between mesh points, and a numerical quadrature may underestimate a constrained resource. The certificate therefore returns to the continuous equations and verifies a dual inequality directly.</p>
+<p>Choose any periodic absolutely continuous adjoint \(\phi(t)\), multipliers \(\beta,\gamma\ge0\), and a free vector \(\eta\) for the mean-inventory constraint. For every admissible baseline, integration by parts gives</p>
+<div class="equation">\[
+\begin{aligned}
+J\le{}&\beta S+\gamma A+T\eta^T\bar p\\
+&+\int_0^T\sup_{(p,x)\in K(t)}
+\Big[
+-(\dot\phi+\eta)^Tp\\
+&\hspace{27mm}+(h+L\phi-\gamma d)^Tx
+-\beta f_t(x)
+\Big]dt.
+\end{aligned}
+\]</div>
+<p>To prove the inequality, add the identically zero quantity \(\int\phi^T(\dot p+Lx)dt\) to the objective, subtract the entropy and activity with their nonnegative multipliers, and subtract \(\eta^T(\int p\,dt-T\bar p)\). Periodicity removes the boundary term. Substituting the resource ceilings and taking the pointwise supremum proves the result. It holds for every proposed adjoint and multiplier; neither strong duality nor numerical optimality of the proposal is needed.</p>
+<p>The executable certificate uses a piecewise-linear adjoint proposed by the conic solver. Its knot values are reinterpreted as exact binary64 dyadics. Arb arithmetic encloses the adjoint, its derivative and the continuous gate coefficients on 8,192 time intervals. The product \(L\phi\) is quadratic on each control interval, so its enclosure contains every intermediate time. All additions, interpolation endpoints and resource constants enter the enclosure arithmetic before they are bounded. Arb supplies the outward-rounded transcendental enclosures used in this process <a href="#ref-johansson2017">[Johansson]</a>.</p>
+<p>The remaining pointwise supremum is bounded by linear programs. The edge entropy is convex and positively homogeneous, so every positive reference pair gives a global supporting plane with zero offset:</p>
+<div class="equation">\[
+g(a,b)\ge
+\left[\log\frac{a_0}{b_0}+1-\frac{b_0}{a_0}\right]a
++\left[-\log\frac{a_0}{b_0}+1-\frac{a_0}{b_0}\right]b.
+\]</div>
+<p>For each edge, an epigraph variable is constrained to exceed zero and thirteen such planes. The tangent ratios cover the local proposal and a broad range around it. Since \(g\ge0\), replacing a time-varying conductance by its interval lower bound preserves a lower bound on the entropy. Downward-enclosed plane coefficients preserve that lower bound for nonnegative \(x\). Subtracting these lower bounds in the dual produces an upper bound on the continuous supremum.</p>
+<p>The pointwise physical polytope is also enlarged conservatively over each time interval. In particular, the escape constraint uses the lower bound on \(d_i(t)\), while well exponentials are enclosed in the direction that admits every original feasible point. The auxiliary equalities \(x_3=p_3,x_4=p_4\) are retained exactly. All optimization variables are nonnegative and have explicit compact upper bounds. The entropy epigraph can be capped at 64: the declared well box and occupation floor imply a Jeffreys upper bound below 21.882, so that cap excludes no physical point needed by the upper-bound construction.</p>
+<p>Each linear program supplies only a proposed dual vector. Its validity is checked by an explicit residual correction. For a maximization problem with \(Az\le b\), \(A_Ez=b_E\), and \(0\le z\le z^{\max}\), take any \(y\ge0\) and free \(w\). Then</p>
+<div class="equation">\[
+c^Tz\le b^Ty+b_E^Tw
++\sum_j z_j^{\max}
+\max\{c_j-(A^Ty+A_E^Tw)_j,0\}.
+\]</div>
+<p>The certificate evaluates this expression with outward-rounded arithmetic. A residual cannot invalidate the result; it increases the reported bound by its worst possible contribution over the compact box. Summing the certified interval supremums yields a continuous-time baseline upper bound. The verifier needs no conic optimizer: it reuses the frozen proposal, recomputes the enclosing linear programs and checks their corrected bounds.</p>
+
+<h3>An exact assisted witness</h3>
+<p>The lower side of the comparison is a physically feasible protocol, not the raw conic solution. Both gate conductances and \(x\) are linear between rational knots. Their product is quadratic, hence \(p(t)=p(0)-\int_0^tL(s)x(s)ds\) is cubic on each interval. This representation permits exact algebraic closure and exact resource integrals.</p>
+<p>First, the proposed controls are contracted toward the interior reference \(p^{\rm ref}=\mathbf1/5\), \(x^{\rm ref}=3\mathbf1/16\), using factor \(63/64\). The reference has zero current and zero entropy, while its activity is exactly 15. This creates strict margins below the activity ceiling and within the well and escape bounds. The source knot values are then rationalized. Their small integrated continuity residual is removed by adding one constant vector to every \(x\) knot:</p>
+<div class="equation">\[
+R=\int_0^TL(t)x(t)dt,
+\qquad
+\left(\int_0^TL(t)dt\right)c=-R,
+\qquad x\leftarrow x+c.
+\]</div>
+<p>The integrated Laplacian is connected, and \(R\) has zero total mass, so the correction exists modulo a constant. The chosen gauge fixes one component. Every coefficient is rational, making the repaired periodicity identity exact. The initial occupation is then chosen by the exact double integral that enforces the uniform mean inventory. Normalization follows from \(\mathbf1^TL=0\).</p>
+<p>Bernstein polynomial bounds certify the occupation floor, both well inequalities and the escape ceiling throughout each interval. They do not merely test the knots. The activity and every integrated edge current are rational polynomial integrals. Entropy is enclosed by subdividing each interval and evaluating the positive logarithmic expression with 180-bit Arb arithmetic. The recovered energy is continuous, and its piecewise derivative \(\dot E_i=\dot x_i/x_i-\dot p_i/p_i\) is enclosed on the same exact polynomial source. The resulting witnesses satisfy the finite well-slew ceiling, including the one-sided derivatives at knots.</p>
+<p>The baseline upper bound omits the well-slew restriction entirely. It therefore bounds a larger class than the physically slew-limited baseline. Beating that larger class with a finite-slew assisted witness proves the desired comparison without solving a nonconvex slew-constrained baseline problem.</p>
+
+<h3>Certified finite-speed assistance</h3>
+<p>The completed comparisons are shown below. The assisted values are exact rational current integrals, displayed in roundtrip binary64 notation. The baseline values are outward upper bounds for the continuous comparator class. The percentage is a lower bound on the improvement over its unknown exact optimum.</p>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Auxiliary architecture</th><th>Assisted current</th><th>Continuous baseline upper</th><th>Guaranteed gain</th></tr></thead><tbody>
+<tr><td>Two leaves</td><td>0.07369813425630575</td><td>0.06423038232315985</td><td>14.7403%</td></tr>
+<tr><td>Chain</td><td>0.07659164555699806</td><td>0.06564647659366649</td><td>16.6728%</td></tr>
+<tr><td>Auxiliary triangle</td><td>0.07578828665434822</td><td>0.06457927027504308</td><td>17.3569%</td></tr>
+</tbody></table></div>
+<p>These are three separate global comparisons at a common fixed command and budget specification. The chain gives the largest constructed useful current in this benchmark. The two trees also have the pathwise bounded auxiliary counts established by the storage theorem. The cyclic auxiliary architecture retains an independent winding-noise direction, although its mean auxiliary circulation vanishes. The topology comparison consequently has two outputs: attainable useful circulation and the structure of unwanted counting fluctuations.</p>
+<p>For the two-leaf witness, the exact useful current is</p>
+<div class="equation">\[
+J_{\rm leaves}
+=\frac{10621020479187181}{144115188075855872}.
+\]</div>
+<p>Its activity is approximately 15.9843749923, and its rigorous entropy upper bound is below 0.146609. The corresponding chain and cyclic witnesses have entropy upper bounds below the common ceiling as well. The comparisons use identical resource ceilings, rather than requiring identical realized entropy and activity. This gives the baseline permission to spend its full budget; the assisted witness already exceeds its certified best possible output while remaining inside those ceilings.</p>
+<p>The claim is therefore stronger than a comparison against a selected frozen-storage waveform. It does not depend on the conic solver having found the true baseline optimum. Any missed baseline controller is still covered by the continuous dual upper bound. The positive separation follows from the independently verified assisted feasibility and upper-bound inequalities.</p>
+
+<h3>What the resource comparison establishes</h3>
+<p>Each resource controls a different freedom in the inverse problem. The entropy ceiling limits irreversible well-driving cost. The activity ceiling limits the number of elementary transitions spent to produce the signed output. The escape ceiling prevents an optimizer from concentrating its transition budget into arbitrarily rapid bursts. The well box limits the landscape excursion itself. The mean-inventory equalities prevent a controller from replacing a storage architecture with a different effective population allocation. Finally, the slew bound constrains the rate at which the reconstructed landscape can move. Combining them fixes a meaningful finite-speed task rather than a scaling convention.</p>
+<p>The three architectures also receive the same active gate command. Because that command is fixed, its finite amplitude, timing and derivative are identical on the two sides of each certified comparison. The positive minimum conductance makes its barrier representation \(B_{01}=-\log q_{01}\) continuous with bounded one-sided slopes. No instantaneous barrier switch is used. The well protocol is also continuous: the linear \(x\) knots and integrated cubic occupations agree at every boundary. Its derivative can change at a boundary, but the certified one-sided slew remains finite. This is a bounded command with 64 control intervals, rather than an idealized limit of infinitely fast switching.</p>
+<p>The uniform mean occupation constraint is particularly informative for auxiliary assistance. The baseline already has the auxiliary chambers physically present and occupied. It is allowed to manipulate every active well, including the junction, to make use of passive storage. Assistance therefore does not gain by adding particles, removing states, changing the average number of particles held in storage or withholding an active control from the baseline. It gains by modulating the existing auxiliary well energies in time. All work associated with those well changes enters the same entropy expression, and every transition they induce enters the same activity budget.</p>
+<p>The comparison between different auxiliary graphs is equally explicit. The two leaves and chain have the same number of states and edges, while their connectivity differs. The auxiliary triangle has one additional edge but the same total installed conductance. Matching that sum gives a clear installation normalization; it does not assert that every physical fabrication cost is determined by conductance alone. The certified statements are the within-architecture controller separations. Comparing their useful currents and noise characteristics then identifies promising architectures under the declared normalization.</p>
+<p>A controller satisfying a stricter practical constraint is automatically included in the upper-bound class when that constraint is dropped. This is why the baseline's unrestricted well slew strengthens the result. It gives the baseline access to commands that a finite-bandwidth device could not realize. The assisted witness obeys the finite slew ceiling anyway. The comparison consequently remains valid for the narrower physical baseline, without estimating how close its optimum lies to the relaxed upper bound.</p>
+
+<h3>Reconstruction and independent replay</h3>
+<p>The saved numerical program separates search from verification. The conic search operates in ordinary floating-point arithmetic and proposes knot values, state occupations, entropy multipliers and dynamic adjoints. Those proposals are useful for discovering a small certificate. The final assisted waveform is a different, explicitly repaired rational object. Its periodicity, normalization, mean inventory, activity and integrated currents follow from exact arithmetic on that object. Transcendental functions appear only in the recovered energy and entropy, where outward enclosures provide the required inequalities.</p>
+<p>The continuous upper certificate is independent of the assisted construction. Its input is a baseline adjoint and resource multipliers, not the assisted current. The verifier evaluates a universal inequality over the baseline polytope. Every pointwise linear-program solution is treated as a proposal; the corrected dual inequality covers its residual. Thus numerical weaknesses have a specific consequence: they enlarge an upper bound or fail a feasibility margin. They cannot turn a missed competitor into a claimed exclusion.</p>
+<p>The source archive retains the exact rational knots and polynomial coefficients as strings. It also retains the floating-point control proposals that generated them, so the solver-assisted search can be repeated separately. The default certificate replay requires the mathematical libraries used for rational and interval arithmetic, together with the linear-program solver. The conic optimizer is needed only to repeat the search. This distinction keeps the verification path compact and makes the source of each quantitative claim inspectable.</p>
+<p>Independent integration of the original master equation provides a further numerical comparison. Starting from the constructed phase occupation, the reconstructed energies and fixed gates generate the prescribed occupation path. The integrated signed counts agree with the rational polynomial integrals, and the periodic endpoint returns to the same occupation. These checks test the connection between the occupation design variables and the original rate equation. They supplement the exact construction; they are not substituted for its algebraic periodicity or interval feasibility checks.</p>
+<p>The full counting-statistics calculation uses the reconstructed rate matrix on the complete five-state graph. Aggregating storage occupations is sufficient to determine active mean routing, but it does not generally produce an autonomous Markov process with the same waiting-time statistics. Retaining all states in the tilted propagator preserves those temporal correlations. This is how the certified mean-transport witness and its precision evaluation remain descriptions of the same machine.</p>
+<p>The bounds support a direct specification. Given an entropy and transition budget, the assisted controller delivers at least its certified current. The frozen-storage class cannot exceed its certified continuous upper value under the same command and inventory. The counting calculation then specifies how many repeated cycles or independent copies are needed to resolve that output. The result connects a design theorem, an executable waveform and an observation requirement rather than reporting only a favorable ratio of local geometric coefficients.</p>
+
+<h3>A certified region of operation</h3>
+<p>The construction produces more than one isolated point. Mix a certified witness with the same zero-current reference using \(0\le\theta\le1\). The dynamics, mean inventory, well inequalities and escape inequalities are preserved by convexity. Current scales exactly as \(J_\theta=\theta J\), activity is the exact affine combination \(\mathcal A_\theta=\theta\mathcal A+(1-\theta)15\), and entropy satisfies \(\Sigma_\theta\le\theta\Sigma\).</p>
+<p>The common finite slew bound also holds throughout these mixtures. Since the reference derivatives vanish,</p>
+<div class="equation">\[
+|\dot E_{i,\theta}|
+\le \frac{|\dot x_i|}{x_i}
++\frac{|\dot p_i|}{p_i}.
+\]</div>
+<p>The right-hand side has a rigorous uniform upper bound below 20 for all three source witnesses. Thus no additional waveform optimizer is required to certify the mixture family. The same frozen dual certificate gives an affine baseline upper bound when the entropy or activity budget changes. The retained frontier evaluates five mixture factors and shows strict separation for all architectures at entropy ceilings 0.12, 0.135 and 0.15, with activity ceiling 16.</p>
+<p>These curves are certified attainable-versus-impossible bounds, not claims that every plotted assisted point is globally optimal. Their purpose is operational: they identify a nontrivial region in which auxiliary well control provably improves output under the stated continuous constraints. Full counting statistics then supplies the target precision and finite-horizon performance of each constructed waveform. The mathematical result and its engineering readout remain attached to the same explicit protocol.</p>
+<p>The resource multipliers also give the certificate a useful sensitivity interpretation. Holding its adjoint and pointwise constraints fixed, the upper bound changes by \(\beta\Delta S+\gamma\Delta A\) when the two integral ceilings change. These coefficients are properties of a valid bound, even when the proposal is not an exact optimizer. They allow a designer to quantify how much additional entropy or transition activity a frozen-storage competitor would need before the existing exclusion ceases to separate it from the assisted witness. Strict feasibility margins and a strict performance gap persist under sufficiently small changes of the integral ceilings. The displayed operating region therefore reflects a continuous certified design advantage, rather than equality at one specially tuned budget.</p>
+</section>

@@ -1,0 +1,108 @@
+<section id="certification-v2">
+<h2>Certificates for continuous protocols and finite observations</h2>
+<p>A transport specification contains several different mathematical objects: a realizable continuous control, an integrated resource budget, an upper bound on a competing design class, and a probability statement for an actual observation. Each object receives its own certificate. The continuous assisted protocols are represented by exact rational functions between knots; their feasibility is established over complete time intervals. The held-protocol experiment is represented by exact rational rate matrices; its propagators and probabilities are enclosed by arbitrary-precision ball arithmetic. This organization makes the numerical claims executable at the level at which they are stated.</p>
+
+<h3>Exact repair of the continuous occupation path</h3>
+<p>For the resource-constrained designs, both the conductances and occupation potentials are affine on each knot interval. Write the local coordinate as \(s\in[0,1]\), the interval duration as \(h\), and use rational endpoint data to define \(q(s)\) and \(x(s)\). The mean edge flux and occupation derivative are then quadratic polynomials:</p>
+<div class="equation">\[
+j_e(s)=q_e(s)\bigl[x_i(s)-x_j(s)\bigr],
+\qquad \dot p(s)=Dj(s).
+\]</div>
+<p>Consequently, occupation is cubic on each interval, while integrated edge counts and total activity are rational numbers. The optimized proposal is first moved a small fixed distance toward an interior reference. A constant correction to the potential vector then closes the probability path exactly. Let \(r\) be the proposal's integrated occupation discrepancy and let \(\overline L=\int_0^T L(t)\,dt\). Adding a constant vector \(c\) to every potential knot changes that discrepancy by \(-\overline Lc\). Fixing one component of \(c\) removes the constant-potential freedom, and solving the remaining rational linear system gives</p>
+<div class="equation">\[
+\overline Lc=r,
+\qquad p(T)-p(0)=0.
+\]</div>
+<p>The initial occupation is selected so that the time-averaged inventory of every state is exactly \(1/5\). Thus the five-state architectures are compared with the same total probability and the same average state inventory. The certified source consists of rational conductance knots, repaired potential knots, initial probabilities and cubic occupation coefficients. Binary64 arrays are retained for plotting and independent differential-equation replay; the rational source identifies the mathematical protocol.</p>
+
+<div class="theorem"><h3>Continuous feasibility certificate</h3>
+<p>On every knot interval, suppose exact polynomial range bounds establish positivity, normalization, the occupation floor, the well-energy box and the escape-rate ceiling. Suppose outward-rounded interval bounds establish the entropy budget and the one-sided well-energy slew limit. Then \(E_i(t)=\log[x_i(t)/p_i(t)]\) is a continuous, positive-rate realization of the certified periodic occupation path and satisfies those limits for the entire driving period.</p>
+<p><strong>Proof.</strong> The exact occupation coefficients satisfy \(\dot p=-Lx\). Since \(x_i,p_i>0\), reconstructing \(e^{E_i}=x_i/p_i\) gives \(-L\,\mathrm{diag}(e^E)p=-Lx=\dot p\). The rational identities prove periodicity and conservation. The remaining inequalities hold pointwise by their range certificates. The reconstructed energies are continuous and piecewise differentiable; bounded one-sided derivatives imply the asserted global slew bound.</p></div>
+
+<p>The polynomial range test uses Bernstein coefficients. For a polynomial \(f\) expressed on a subinterval in the Bernstein basis, its value lies between its smallest and largest coefficients. Substitution and conversion from the power basis use rational arithmetic. The energy constraints are checked in the stronger polynomial forms</p>
+<div class="equation">\[
+x_i-\overline{e^{-E_{max}}}\,p_i\ge0,
+\qquad
+\underline{e^{E_{max}}}\,p_i-x_i\ge0,
+\]</div>
+<p>where the overbar and underbar are outward enclosures of the corresponding exponential constants. Escape constraints use \(r_{max}p_i-d_ix_i\ge0\), with \(d_i=\sum_{e\ni i}q_e\). Entropy is enclosed by interval integration of the exact affine \(x,q\) functions. The well derivative is evaluated as \(\dot E_i=\dot x_i/x_i-\dot p_i/p_i\), with strictly positive denominator bounds. The retained proof uses 64 Bernstein subintervals and 256 entropy subintervals per knot span, and 180-bit Arb arithmetic for transcendental quantities.</p>
+<p>The certified resource limits are \(T=8\), \(\Sigma\le0.15\), expected total activity at most 16, \(|E_i|\le1.2\), state escape rate at most 6, occupation at least 0.015, and well slew at most 20. The upper entropy enclosures are 0.146608458 for the star, 0.146859042 for the chain and 0.146791353 for the cyclic auxiliary. Their certified maximum well slews are respectively 8.041636, 13.617219 and 9.824099. These strictly interior margins accompany exact periodicity and exact zero net auxiliary counts.</p>
+<p>The global comparator bound and the assisted feasibility proof have complementary roles. An assisted rational protocol supplies a feasible lower bound on achievable output. A continuous dual inequality supplies an upper bound for the stated frozen-storage class. A positive separation between them proves the performance comparison independently of whether the proposal optimizer found its best assisted solution. The certificate therefore survives ordinary differences between nonlinear solver implementations.</p>
+
+<h3>Ball arithmetic and authoritative endpoints</h3>
+<p>The probability experiment below uses 320-bit Arb matrix arithmetic. Arb represents a real number by a midpoint and a rigorous radius, propagating an enclosure through matrix exponentials, products and powers. Its arbitrary-precision ball representation and matrix operations are described by Johansson <a href="#ref-johansson2017">[Johansson]</a>. Every source transition rate and hold duration in this experiment is rational. Tilt parameters are supplied as positive rational values \(z=e^\chi\); evaluating a tilt therefore introduces no unrecorded floating-point parameter.</p>
+<p>Each stored bound contains exact dyadic endpoints, recorded as integer mantissas and powers of two. A displayed decimal is a convenient reading of that bound. The dyadic endpoints are the authoritative certificate and can be reconstructed without relying on decimal formatting. All extrema used in norm estimates and contraction bounds are compared at exact endpoints. The independent reference calculation uses 110 decimal digits of mpmath arithmetic and a separately evaluated sequence of matrix exponentials.</p>
+</section>
+
+<section id="horizon-risk">
+<h2>Finite-horizon reliability and the cost of an auxiliary cycle</h2>
+<p>The precision experiment uses a three-hold protocol with period six. It provides a compact, fully enclosed demonstration of the difference between a cyclic spectator and acyclic storage. Its budgets are stated by its rate matrices; it is a separate experiment from the continuously optimized, entropy- and activity-constrained comparison. Both held architectures have the same active triangle, five states, the same well factors and an auxiliary conductance sum of \(3/2\).</p>
+<p>The active oriented edges are \(0\to1\), \(1\to2\), \(2\to0\). The cyclic auxiliary edges are \(0\to3\), \(3\to4\), \(4\to0\), each with conductance \(1/2\). The star edges are \(0\to3\), \(0\to4\), each with conductance \(3/4\). For the well factors \(w_i=e^{E_i}\), the forward rate on \(i\to j\) is \(q_ew_i\), and the reverse rate is \(q_ew_j\). Each row of the following table lasts exactly two time units.</p>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Hold</th><th>Active conductances \((q_{01},q_{12},q_{20})\)</th><th>Well factors \((w_0,w_1,w_2,w_3,w_4)\)</th></tr></thead><tbody>
+<tr><td>0</td><td>\((1/8,1/8,2)\)</td><td>\((1/4,4,4,1/2,2)\)</td></tr>
+<tr><td>1</td><td>\((2,1/8,1/8)\)</td><td>\((4,1/4,4,1,1)\)</td></tr>
+<tr><td>2</td><td>\((1/8,2,1/8)\)</td><td>\((4,4,1/4,2,1/2)\)</td></tr>
+</tbody></table></div>
+<p>The productive observable counts signed crossings of \(0\to1\). The auxiliary observable counts signed crossings of \(0\to3\). In the star this second channel is a bridge, so its count is a bounded change of stored occupation. In the cyclic auxiliary it participates in a genuine winding degree of freedom. Both protocols have zero auxiliary mean count at integer periods in their periodic state.</p>
+
+<h3>Certified periodic initialization</h3>
+<p>Let \(M\) be the exact un-tilted one-period propagator. It is a positive stochastic matrix. Choose an exactly normalized, positive dyadic proposal \(v\) for its invariant probability and enclose the residual \(r=(M-I)v\). If every propagator entry is at least \(m&gt;0\), its action on zero-sum vectors contracts the \(\ell^1\) norm by at most \(1-nm\). The periodic probability \(p_*\) is therefore enclosed by</p>
+<div class="equation">\[
+\boxed{\|p_*-v\|_1\le\frac{\|(M-I)v\|_1}{nm}.}
+\]</div>
+<p><strong>Proof.</strong> Stochasticity and the entrywise lower bound give the Doeblin decomposition \(M=m\mathbf1\mathbf1^T+(1-nm)R\), where \(R\) is stochastic. Apply the contraction to \(p_*-v\), use \(Mp_*=p_*\), and rearrange the residual inequality. This simultaneously establishes uniqueness of the periodic law and bounds the initialization error.</p>
+<p>The 320-bit calculation gives initial-law \(\ell^1\) error bounds of approximately \(1.12\times10^{-86}\) for the cyclic auxiliary and \(2.42\times10^{-86}\) for the star. This uncertainty is propagated into every reported probability. Independent 110-digit periodic solves and tilted-propagator evaluations fall within the retained enclosures.</p>
+
+<h3>Finite observations from tilted propagators</h3>
+<p>For a signed count \(N_c\), tilt only the counted off-diagonal rates: multiply forward rates by \(z\) and reverse rates by \(z^{-1}\), keeping the physical escape-rate diagonal unchanged. If \(M_z\) denotes the resulting period propagator, then the exact moment generating function over \(n\) complete periods is</p>
+<div class="equation">\[
+G_n(z)=\mathbb E_{p_*}z^{N_c(nT)}
+=\mathbf1^TM_z^{\,n}p_*.
+\]</div>
+<p>The Floquet treatment of periodic counting statistics is established in the stochastic-pump literature <a href="#ref-barato2018">[Barato–Chetrite]</a>. At a finite horizon the complete matrix expression is used; replacing it by a dominant-eigenvalue asymptotic would discard the finite observation and initialization terms. If the periodic law is known through the residual bound \(\delta\), the extra uncertainty in \(G_n\) is at most \(\|\mathbf1^TM_z^n\|_\infty\delta\). Ball matrix products enclose the remaining numerical error.</p>
+<p>For \(0&lt;z&lt;1\), the event \(N_c\le0\) has probability at most \(G_n(z)\). Positive tilts similarly bound upper tails; two one-sided bounds control a terminal absolute-count tolerance. The retained rational-tilt search gives the following finite-horizon target specification:</p>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Architecture</th><th>Periods per copy</th><th>Upper bound on target count \(\le0\)</th><th>Ten independent copies: upper bound on aggregate count \(\le0\)</th></tr></thead><tbody>
+<tr><td>Cyclic auxiliary</td><td>10</td><td>0.09194876324498543</td><td>\(4.3197530649\times10^{-11}\)</td></tr>
+<tr><td>Star storage</td><td>10</td><td>0.08767576263571959</td><td>\(2.6840804092\times10^{-11}\)</td></tr>
+</tbody></table></div>
+<p>The ensemble statement concerns the sign of the <em>aggregate</em> productive count. For independent copies the generating functions multiply, so the same admissible tilt gives the tenth power of the single-copy bound. It is a finite-time probability inequality, with no Gaussian assumption and no numerical differentiation of a tilted eigenvalue. It does not assert that every individual copy has positive transport.</p>
+
+<h3>Exact counting moments and bounded storage fluctuations</h3>
+<p>First and second moments are also propagated directly. At zero counting field, let \(K^{(1)}\) and \(K^{(2)}\) be the first two analytic derivatives of the tilted generator. The augmented equations are</p>
+<div class="equation">\[
+\dot p=Kp,\qquad
+\dot m_1=Km_1+K^{(1)}p,\qquad
+\dot m_2=Km_2+2K^{(1)}m_1+K^{(2)}p.
+\]</div>
+<p>Their block exponentials give the exact finite-horizon raw moments for the held process. The variance is \(\mathbf1^Tm_2-(\mathbf1^Tm_1)^2\). This calculation includes the correlations arising during the actual sequence of periods. Optimal control of such counting moments has a substantial literature <a href="#ref-impens2025">[Impens et al.]</a>; here those moments are paired with exact routing identities and rigorous finite-horizon bounds.</p>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Architecture and observable</th><th>Variance after 1 period</th><th>After 10 periods</th><th>After 100 periods</th></tr></thead><tbody>
+<tr><td>Cyclic auxiliary: productive count</td><td>0.342463444</td><td>3.308467231</td><td>32.963008162</td></tr>
+<tr><td>Star: productive count</td><td>0.347112314</td><td>3.253025213</td><td>32.309617637</td></tr>
+<tr><td>Cyclic auxiliary: auxiliary count</td><td>0.463816836</td><td>3.827699992</td><td>37.423407561</td></tr>
+<tr><td>Star: auxiliary count</td><td>0.166042666</td><td>0.168441633</td><td>0.168441633</td></tr>
+</tbody></table></div>
+<p>The auxiliary means are enclosed around zero at all three horizons. The cyclic auxiliary nevertheless develops extensive count fluctuations. The star count approaches a bounded endpoint variance. This is the statistical expression of the bridge identity: its count is a gradient observable, and its accumulating winding component is absent. The broader reduction of asymptotic current statistics to cycle coordinates is related to the gauge invariance established by Wachtel, Vollmer and Altaner <a href="#ref-wachtel2015">[Wachtel et al.]</a>.</p>
+
+<h3>Reading the productive output</h3>
+<p>The held cyclic-auxiliary protocol transports an expected 0.45801786933349015 signed target crossings per period; the star transports 0.4649268427907334. Periodic initialization makes the expectation exactly linear in the number of periods, so the corresponding hundred-period means are 45.8017869333490 and 46.4926842790733. These are signed transition counts, rather than probabilities of a single completed circuit. Their finite-horizon variances include recrossings, the random initial state and temporal correlations. A mean, variance and wrong-direction probability therefore describe complementary features of the same observable.</p>
+<p>The selected rational tilts are admissible certificates in their own right. Searching a denser tilt set may improve a Chernoff bound but is unnecessary for its validity. In particular, the inequality does not require locating the exact minimizing tilt, estimating a large-deviation rate function or assuming that the observation has reached an asymptotic regime. The ensemble bound likewise uses the exact product structure of independent copies. Shared environmental fluctuations would require a joint model before that multiplication could be used.</p>
+<p>The probability certificate is tied to the declared generator, initial law and observation horizon. Its protected star count follows from the graph independently of kinetic calibration. The numerical target and cyclic-risk values use the specified rational rate model. This distinction makes the experiment reproducible while keeping each engineering claim attached to the quantity that supports it. Model calibration, physical actuator power and conversion of the time unit are separate device inputs; the present certificate already supplies a precise stochastic operating specification once those inputs have been identified.</p>
+<h3>A tolerance that must hold throughout the observation</h3>
+<p>A terminal count permits cancellation. To certify that a signed count never leaves \([-b,b]\), augment the physical state to \((i,k)\), where \(k\) is the count. A counted jump moves \((i,k)\) to \((j,k\pm1)\); a transition leaving the allowed range is killed. The substochastic propagator \(M_{\rm safe}\) then gives</p>
+<div class="equation">\[
+\Pr\!\left[\sup_{0\le t\le nT}|N_c(t)|\le b\right]
+=\mathbf1^TM_{\rm safe}^{\,n}p_{*,0},
+\]</div>
+<p>where \(p_{*,0}\) places the initial periodic law at count zero. The lifted matrix has \(5(2b+1)\) states. Its exponentials receive the same ball treatment, and substochasticity bounds the initialization contribution by \(\delta\).</p>
+<p>Over ten periods, the cyclic auxiliary exceeds tolerance \(b=1\) with probability enclosed around <strong>0.74909010509236</strong>; for \(b=2\), the probability is enclosed around <strong>0.33949656565439</strong>. Star storage has exactly zero exceedance probability for either tolerance. Every bridge count remains between minus one and one on every trajectory, so this conclusion follows algebraically and is independently reproduced by the lifted propagator.</p>
+
+<h3>Robustness to a rare closing channel</h3>
+<p>A physical implementation may contain a weak extra transition. Add a channel \(3\leftrightarrow4\) with conductance \(\varepsilon\) to the star. A newly possible auxiliary winding must use that channel. Its conditional jump rate is at most \(\varepsilon\max(w_3,w_4)\). If \(\Lambda\) is an integrated deterministic upper bound on this hazard, the probability of at least one shortcut jump is at most \(1-e^{-\Lambda}\), and the probability of a newly enabled winding is no greater.</p>
+<p>For the specified holds, \(\max(w_3,w_4)\) takes the values 2, 1 and 2. Across ten periods, \(\Lambda=100\varepsilon\). A killed five-state propagator also encloses the actual shortcut-jump event, starting from the periodic law of the full leaky protocol:</p>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Closing conductance</th><th>Probability of at least one shortcut jump</th><th>Hazard upper bound</th></tr></thead><tbody>
+<tr><td>\(1/1024\)</td><td>0.0223606840</td><td>0.0930393821</td></tr>
+<tr><td>\(1/256\)</td><td>0.0862441954</td><td>0.3233661538</td></tr>
+<tr><td>\(1/64\)</td><td>0.2999074755</td><td>0.7903886128</td></tr>
+</tbody></table></div>
+<p>The bound supplies an explicit engineering tolerance: a measured upper limit on an unintended channel becomes an observation-time-dependent risk limit. The event probabilities in the table count any shortcut jump; a complete unwanted winding is a subset of that event. All 34 retained probability-module checks pass, covering periodic initialization, independent high-precision agreement, positive counting variances, mean protection, bounded bridge fluctuations and rare-channel bounds. The resulting specification combines exact topology, finite observations and outward-rounded arithmetic in one replayable calculation.</p>
+</section>

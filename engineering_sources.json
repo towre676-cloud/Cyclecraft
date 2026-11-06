@@ -1,0 +1,16 @@
+{
+  "sources": [
+    {
+      "key": "berglund2010",
+      "authors": "Nils Berglund and Barbara Gentz",
+      "title": "The Eyring–Kramers law for potentials with nonquadratic saddles",
+      "year": 2010,
+      "journal": "Markov Processes and Related Fields 16, 549–598",
+      "url": "https://arxiv.org/abs/0807.1681",
+      "supports": "Metastable Brownian transition times, barrier exponential, curvature-dependent prefactor and degeneracy corrections.",
+      "verified": "Original paper abstract opened and read."
+    }
+  ],
+  "existing_sources_used": ["rahav2008", "sivak2012", "barato2018"],
+  "engineering_status": "Colloidal circulation fabric is proposed as a testbed; no hardware performance is claimed. Molecular-pump context is grounded in original Rahav–Horowitz–Jarzynski paper."
+}

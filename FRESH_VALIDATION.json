@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-05",
+  "scope": "Selected fresh checks only; not full historical replay.",
+  "checks": {
+    "certificate_replay": {
+      "status": "PASS",
+      "checks": 8,
+      "full_proposal_regeneration": false
+    }
+  }
+}

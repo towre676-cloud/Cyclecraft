@@ -1,0 +1,161 @@
+{
+  "schema": "cyclecraft-v2-independent-smooth-floor-v1",
+  "status": "PASS",
+  "method": "Independent cycle-resistance formula and periodic trapezoid integration; no Laplacian inverse or main-code corrector.",
+  "cases": 9,
+  "reviews": [
+    {
+      "architecture": "cycle",
+      "case": "baseline",
+      "independent_cycle_floor": [
+        [
+          2.6142173605600867,
+          0.0
+        ],
+        [
+          0.0,
+          1.7542245186901753
+        ]
+      ],
+      "minimum_excess_eigenvalue": 9.298224776599362e-05,
+      "floor_quadrature_discrepancy": 7.180922523275513e-13,
+      "pass": true
+    },
+    {
+      "architecture": "cycle",
+      "case": "assisted",
+      "independent_cycle_floor": [
+        [
+          2.5730476772934057,
+          0.0
+        ],
+        [
+          0.0,
+          1.82063354825377
+        ]
+      ],
+      "minimum_excess_eigenvalue": 8.974908967673834e-05,
+      "floor_quadrature_discrepancy": 3.559375016948252e-13,
+      "pass": true
+    },
+    {
+      "architecture": "cycle",
+      "case": "assisted_matched",
+      "independent_cycle_floor": [
+        [
+          2.5789855170949574,
+          0.0
+        ],
+        [
+          0.0,
+          1.8179193518845387
+        ]
+      ],
+      "minimum_excess_eigenvalue": 8.397514373070791e-05,
+      "floor_quadrature_discrepancy": 5.793143742494067e-13,
+      "pass": true
+    },
+    {
+      "architecture": "star",
+      "case": "baseline",
+      "independent_cycle_floor": [
+        [
+          2.6121519438248253,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "minimum_excess_eigenvalue": -2.844946500602038e-16,
+      "floor_quadrature_discrepancy": 3.056221942188131e-12,
+      "pass": true
+    },
+    {
+      "architecture": "star",
+      "case": "assisted",
+      "independent_cycle_floor": [
+        [
+          2.567695268206809,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "minimum_excess_eigenvalue": 1.3183898417423724e-16,
+      "floor_quadrature_discrepancy": 1.7221779557985428e-12,
+      "pass": true
+    },
+    {
+      "architecture": "star",
+      "case": "assisted_matched",
+      "independent_cycle_floor": [
+        [
+          2.571606642197092,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "minimum_excess_eigenvalue": 1.942890293094022e-16,
+      "floor_quadrature_discrepancy": 1.6187051699034782e-12,
+      "pass": true
+    },
+    {
+      "architecture": "chain",
+      "case": "baseline",
+      "independent_cycle_floor": [
+        [
+          2.6172231636237693,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "minimum_excess_eigenvalue": -1.3877787807814568e-16,
+      "floor_quadrature_discrepancy": 1.603162047558726e-13,
+      "pass": true
+    },
+    {
+      "architecture": "chain",
+      "case": "assisted",
+      "independent_cycle_floor": [
+        [
+          2.575517496419264,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "minimum_excess_eigenvalue": 6.314393452555572e-16,
+      "floor_quadrature_discrepancy": 3.6193270602780103e-13,
+      "pass": true
+    },
+    {
+      "architecture": "chain",
+      "case": "assisted_matched",
+      "independent_cycle_floor": [
+        [
+          2.586608357247014,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "minimum_excess_eigenvalue": 4.3715031594615095e-16,
+      "floor_quadrature_discrepancy": 3.3084646133829665e-13,
+      "pass": true
+    }
+  ]
+}

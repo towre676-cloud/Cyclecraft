@@ -1,0 +1,30 @@
+<section class="storage-laboratory" id="storage-laboratory" aria-label="Autonomous storage and circulation figures">
+  <figure class="storage-figure" id="storage-architecture-figure">
+    <div class="storage-figure-heading"><span class="storage-plate">Numerical plate I</span><h3>Three storage architectures, one productive cycle</h3></div>
+    <canvas id="storage-network" role="img" aria-label="Synchronized periodic occupations and mean currents on a cyclic auxiliary chamber, a two-leaf storage tree and a storage chain. All values come from the retained numerical program.">The three graphs share their active triangle. Their auxiliary connections form a cycle, two leaves or a chain.</canvas>
+    <div class="storage-legend"><span class="storage-key target">Productive cycle</span><span class="storage-key auxiliary">Auxiliary storage</span><span class="storage-key occupation">Node area: occupation</span><span class="storage-key equilibrium">Dashed ring: frozen equilibrium</span></div>
+    <figcaption><strong>The occupation path is the controlled resource.</strong> Filled node area represents the computed probability; the dashed ring shows instantaneous equilibrium. Edge width encodes conductance, and small moving markers show the sign of the mean current. These markers are a visualization of the current field, rather than individual particle trajectories. The three architectures use the same total installed auxiliary conductance.</figcaption>
+  </figure>
+  <div class="storage-controls" role="group" aria-label="Shared numerical figure controls">
+    <button type="button" id="storage-play" aria-pressed="true">Pause motion</button>
+    <label for="storage-design">Protocol<select id="storage-design"><option value="certified_assisted" selected>Resource certified · T = 8</option><option value="assisted_matched">Harmonic · matched entropy</option><option value="baseline">Harmonic · frozen storage</option><option value="assisted">Harmonic · common amplitude</option></select></label>
+    <label for="storage-architecture">Detailed view<select id="storage-architecture"><option value="star" selected>Two storage leaves</option><option value="chain">Storage chain</option><option value="cycle">Fenced auxiliary cycle</option></select></label>
+    <label for="storage-phase" class="storage-phase-control">Playback position <output id="storage-phase-value">0.080</output><input id="storage-phase" type="range" min="0" max="0.999" value="0.08" step="0.001"></label>
+    <p id="storage-status" class="storage-status" aria-live="polite">Computed numerical figures ready.</p>
+  </div>
+  <figure class="storage-figure" id="storage-noise-figure">
+    <div class="storage-figure-heading"><span class="storage-plate">Numerical plate II</span><h3>Useful transport accumulates; tree storage counts stay bounded</h3></div>
+    <canvas id="storage-noise" role="img" aria-label="Finite-horizon mean productive count and count standard deviations for the three storage architectures, including auxiliary count uncertainty. Values are computed finite-horizon cumulants, not a Gaussian simulation.">Finite-horizon means and standard deviations are computed from counting propagators. Tree-edge signed counts remain bounded, while auxiliary cycle counts can diffuse.</canvas>
+    <figcaption><strong>Every point is a finite-horizon count calculation.</strong> Solid target curves show the magnitude of the mean; dashed target curves show one standard deviation. The auxiliary panel shows its count standard deviation. These are exact model cumulants evaluated numerically, with no Gaussian-distribution assumption. A tree’s signed bridge count is an endpoint occupation difference and cannot grow beyond one in magnitude for a single particle.</figcaption>
+  </figure>
+  <figure class="storage-figure" id="storage-frontier-figure">
+    <div class="storage-figure-heading"><span class="storage-plate">Numerical plate III</span><h3>Compare attainable transport under explicit resource limits</h3></div>
+    <canvas id="storage-frontier" role="img" aria-label="Resource frontier comparing assisted feasible transport, frozen-storage numerical optima and certified frozen-storage upper bounds where available.">The plot compares resource-constrained assisted protocols against frozen-storage comparators. Certified gaps are distinguished from numerical estimates.</canvas>
+    <figcaption><strong>A positive certified gap compares a feasible construction with an upper bound.</strong> The upper curve limits every frozen-storage protocol admitted by the stated fixed-gate model. The assisted curve is a validated feasible protocol. Numerical optimization proposals are recorded separately in the experiment table. Entropy, total transition activity, escape-rate and energy limits are supplied by the experiment record; the plot never substitutes a mesh optimum for a continuous-time certificate.</figcaption>
+  </figure>
+  <figure class="storage-figure" id="storage-path-figure">
+    <div class="storage-figure-heading"><span class="storage-plate">Numerical plate IV</span><h3>Watch the bridge identity hold on an actual particle path</h3></div>
+    <canvas id="storage-path" role="img" aria-label="A retained seeded jump trajectory with its auxiliary signed crossing count and, for a tree, the exact endpoint occupation indicator that equals it.">The state path and signed crossing count are retained samples from the declared stochastic simulation. For a tree edge, the count equals the change in the indicator of the storage component.</canvas>
+    <figcaption><strong>This plate shows a sampled trajectory, not the mean current field.</strong> The upper trace records the discrete state of one particle; the lower trace records signed crossings of the first auxiliary edge. For a tree, the overlaid endpoint-indicator trace agrees at every retained jump. The seed and simulated horizon are displayed. Visits to storage and gross transition traffic remain possible; the count bound concerns signed crossings.</figcaption>
+  </figure>
+</section>

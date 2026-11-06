@@ -1,0 +1,77 @@
+{
+  "schema": "cyclecraft-v2-replay-v1",
+  "status": "PASS",
+  "full_proposal_regeneration": false,
+  "checks": [
+    {
+      "command": [
+        "python",
+        "tree_exact.py"
+      ],
+      "pass": true,
+      "seconds": 1.0487249829966458
+    },
+    {
+      "command": [
+        "python",
+        "noise_geometry_audit.py"
+      ],
+      "pass": true,
+      "seconds": 0.45129296599770896
+    },
+    {
+      "command": [
+        "python",
+        "precision_cert.py"
+      ],
+      "pass": true,
+      "seconds": 0.4053786090007634
+    },
+    {
+      "command": [
+        "python",
+        "primal_certificate.py",
+        "64"
+      ],
+      "pass": true,
+      "seconds": 34.07153020899568
+    },
+    {
+      "command": [
+        "python",
+        "dual_certificate.py",
+        "64",
+        "128"
+      ],
+      "pass": true,
+      "seconds": 73.76315682400309
+    },
+    {
+      "command": [
+        "python",
+        "aggregate_convex.py"
+      ],
+      "pass": true,
+      "seconds": 0.09665591699740617
+    },
+    {
+      "command": [
+        "python",
+        "statistics.py",
+        "--compiled",
+        "/workspace/scratch/418d67e2e88e/v2/primal_cert_results.json"
+      ],
+      "pass": true,
+      "seconds": 7.82786539800145
+    },
+    {
+      "command": [
+        "python",
+        "noise_smooth_review.py"
+      ],
+      "pass": true,
+      "seconds": 0.16586829999869224
+    }
+  ],
+  "elapsed_seconds": 117.83109274000162
+}

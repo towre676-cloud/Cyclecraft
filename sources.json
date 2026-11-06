@@ -1,0 +1,306 @@
+{
+  "scope": "Primary literature for a stochastic geometric-pump formalism; verified via public original-paper pages on 2026-10-30. This is research input, not manuscript prose.",
+  "convention": "Column probability vector, dot(p)=L p; L_ij is j-to-i rate. Edge e=(u,v) oriented u-to-v; j_e=L_vu p_u-L_uv p_v; incidence D has -1 at u,+1 at v, so dot(p)=D j. Energies in kBT units.",
+  "equations": [
+    {
+      "id": 1,
+      "name": "Arrhenius detailed-balance parametrization",
+      "formula": "L_ij=nu_ij exp(E_j-B_ij), B_ij=B_ji, nu_ij=nu_ji; pi_i=exp(-E_i)/Z",
+      "role": "Controls equilibrium occupancies independently of symmetric conductances; barriers change routing kinetics.",
+      "sources": [
+        "rahav2008"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Markov-chain matrix-tree stationary formula",
+      "formula": "pi_i=tau_i/sum_j tau_j, tau_i=sum_{T rooted at i} product_{(j->k) in T} L_kj",
+      "role": "Positive combinatorial representation; independent stationary-state verification and symbolic elimination.",
+      "sources": [
+        "gunawardena2012",
+        "schnakenberg1976"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Reduced inverse adiabatic response",
+      "formula": "G=(L+Pi)^(-1)-Pi, Pi=pi 1^T; LG=GL=I-Pi; p=pi+T^(-1)G pi'+O(T^(-2))",
+      "role": "Computable transport connection without stochastic simulation. The correction sign is PLUS with the stated negative-spectrum L convention.",
+      "sources": [
+        "avron2012"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Stochastic geometric pumping connection and curvature",
+      "formula": "A_ea=c_e^T G partial_a pi; Q_e^ad=oint A_ea d lambda_a; F_eab=partial_a A_eb-partial_b A_ea",
+      "role": "A closed control loop maps to a directed transport vector; control orientation reverses leading pumped current.",
+      "sources": [
+        "sinitsyn2007",
+        "rahav2008"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Cycle-space conservation and Hodge projection",
+      "formula": "D Q=0; P_cycle=I-D^T(DD^T)^+D; Q=C z for any cycle basis C",
+      "role": "Every periodic circulation lies in graph cycle space; bridge current is exactly zero; projection removes numerical continuity defects.",
+      "sources": [
+        "schnakenberg1976",
+        "jiang2011",
+        "chernyak2008"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "No-pumping and pumping restriction",
+      "formula": "B(t)=B_0 implies Q=0; E(t)=E_0 implies periodic p(t)=pi and Q=0; dim allowed pumps constrained by driven-subgraph topology",
+      "role": "Exact design gate: a device must vary both occupancy and routing, and controls must touch appropriate loops.",
+      "sources": [
+        "rahav2008",
+        "chernyak2008"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Schnakenberg entropy production",
+      "formula": "sigma(t)=sum_{e=(u,v)} (a_e-b_e) log(a_e/b_e), a_e=L_vu p_u,b_e=L_uv p_v; Sigma=integral sigma dt>=0",
+      "role": "Physical dissipation audit on one orientation per undirected edge. No factor 1/2 is needed in this convention.",
+      "sources": [
+        "schnakenberg1976",
+        "lebowitz1999"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Green-Kubo thermodynamic friction metric",
+      "formula": "zeta_ab=beta integral_0^infty <delta X_b(0) delta X_a(t)>_pi dt; W_ex=integral dot(lambda)^T zeta dot(lambda) dt",
+      "role": "Riemannian cost of changing equilibrium energies, with constant-thermodynamic-speed optimal scheduling.",
+      "sources": [
+        "sivak2012"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Isoperimetric skew-curvature mode",
+      "formula": "x=a cos(theta)+b sin(theta); Q_w=pi a^T F_w b; S=pi(a^T M a+b^T M b); max |Q_w|/S=0.5 ||M^(-1/2) F_w M^(-1/2)||_2",
+      "role": "Elementary Rayleigh/isoperimetric reduction derived for this synthesis; related geometric stroke optimization is established. Must assume strictly positive M or constrain metric-null directions.",
+      "sources": [
+        "tam2007",
+        "sivak2012"
+      ],
+      "attribution": "The displayed singular-value identity is an elementary derivation for the proposed method, not claimed as an equation directly quoted from Tam-Hosoi."
+    },
+    {
+      "id": 10,
+      "name": "Tilted Floquet full counting statistics",
+      "formula": "L_chi,ij=L_ij exp(chi d_ij) for i!=j, diagonal L_ii unchanged; U_chi=Texp integral L_chi dt; psi(chi)=T^(-1) log rho(U_chi)",
+      "role": "One exact finite-time periodic operator determines long-time mean transport, variance, and large-deviation statistics.",
+      "sources": [
+        "barato2018"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "key": "rahav2008",
+      "authors": "Saar Rahav, Jordan Horowitz, Christopher Jarzynski",
+      "title": "Directed flow in non-adiabatic stochastic pumps",
+      "year": 2008,
+      "journal": "Physical Review Letters 101, 140602",
+      "url": "https://arxiv.org/abs/0808.0015",
+      "full_text_url": "https://arxiv.org/html/0808.0015v2",
+      "doi": "10.1103/PhysRevLett.101.140602",
+      "web_refs": [
+        "turn3view1",
+        "turn7view0"
+      ],
+      "supports": "Arrhenius parametrization, nonadiabatic excess-current decomposition, no-pumping theorem, adiabatic geometric flow."
+    },
+    {
+      "key": "sinitsyn2007",
+      "authors": "N. A. Sinitsyn, I. Nemenman",
+      "title": "The unified geometric theory of mesoscopic stochastic pumps and reversible ratchets",
+      "year": 2007,
+      "journal": "Physical Review Letters 99, 220408",
+      "url": "https://arxiv.org/abs/0705.2057",
+      "doi": "10.1103/PhysRevLett.99.220408",
+      "web_refs": [
+        "turn3view0"
+      ],
+      "supports": "Geometric contributions to mesoscopic pump kinetics and counting statistics."
+    },
+    {
+      "key": "avron2012",
+      "authors": "J. E. Avron, M. Fraas, G. M. Graf, P. Grech",
+      "title": "Adiabatic theorems for generators of contracting evolutions",
+      "year": 2012,
+      "journal": "Communications in Mathematical Physics",
+      "url": "https://arxiv.org/abs/1106.4661",
+      "full_text_url": "https://arxiv.org/html/1106.4661v2",
+      "doi": "10.1007/s00220-012-1504-1",
+      "web_refs": [
+        "turn6view0",
+        "turn7view3",
+        "turn9view1"
+      ],
+      "supports": "Reduced-inverse adiabatic expansion; Theorem 20 Eq.42 explicitly gives pi+epsilon L^(-1) dot(pi)+O(epsilon^2)."
+    },
+    {
+      "key": "schnakenberg1976",
+      "authors": "J. Schnakenberg",
+      "title": "Network theory of microscopic and macroscopic behavior of master equation systems",
+      "year": 1976,
+      "journal": "Reviews of Modern Physics 48, 571",
+      "url": "https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.48.571",
+      "doi": "10.1103/RevModPhys.48.571",
+      "web_refs": [
+        "turn6view2"
+      ],
+      "supports": "Graph network treatment, Kirchhoff steady states, flux-force thermodynamics and cycle currents."
+    },
+    {
+      "key": "gunawardena2012",
+      "authors": "Jeremy Gunawardena",
+      "title": "A Linear Framework for Time-Scale Separation in Nonlinear Biochemical Systems",
+      "year": 2012,
+      "journal": "PLOS ONE 7(5), e36321",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0036321",
+      "doi": "10.1371/journal.pone.0036321",
+      "web_refs": [
+        "turn11view3"
+      ],
+      "supports": "Positive rooted spanning-tree stationary formula, exact graph-based elimination; canonical source lines217-222."
+    },
+    {
+      "key": "jiang2011",
+      "authors": "Xiaoye Jiang, Lek-Heng Lim, Yuan Yao, Yinyu Ye",
+      "title": "Statistical ranking and combinatorial Hodge theory",
+      "year": 2011,
+      "journal": "Mathematical Programming 127, 203-244",
+      "url": "https://arxiv.org/abs/0811.1067",
+      "doi": "10.1007/s10107-010-0419-x",
+      "web_refs": [
+        "turn6view1"
+      ],
+      "supports": "Orthogonal gradient/cycle decomposition of edge flows. Its statistical application differs from the present physical use."
+    },
+    {
+      "key": "chernyak2008",
+      "authors": "V. Y. Chernyak, N. A. Sinitsyn",
+      "title": "Pumping-Restriction Theorem for Stochastic Networks",
+      "year": 2008,
+      "journal": "Physical Review Letters 101, 160601",
+      "url": "https://arxiv.org/abs/0808.0205",
+      "full_text_url": "https://arxiv.org/html/0808.0205v3",
+      "doi": "10.1103/PhysRevLett.101.160601",
+      "web_refs": [
+        "turn8view0",
+        "turn12view1"
+      ],
+      "supports": "Exact nonperturbative topological restrictions; integrated bridge currents vanish; driven-subgraph restrictions."
+    },
+    {
+      "key": "lebowitz1999",
+      "authors": "Joel L. Lebowitz, Herbert Spohn",
+      "title": "A Gallavotti-Cohen Type Symmetry in the Large Deviation Functional for Stochastic Dynamics",
+      "year": 1999,
+      "journal": "Journal of Statistical Physics 95, 333-365",
+      "url": "https://arxiv.org/abs/cond-mat/9811220",
+      "doi": "10.1023/A:1004589714161",
+      "web_refs": [
+        "turn6view4"
+      ],
+      "supports": "Markov jump fluctuation theory, entropy production, Green-Kubo and Onsager connections under local detailed balance."
+    },
+    {
+      "key": "sivak2012",
+      "authors": "David A. Sivak, Gavin E. Crooks",
+      "title": "Thermodynamic metrics and optimal paths",
+      "year": 2012,
+      "journal": "Physical Review Letters 108, 190602",
+      "url": "https://arxiv.org/abs/1201.4166",
+      "full_text_url": "https://arxiv.org/html/1201.4166v2",
+      "doi": "10.1103/PhysRevLett.108.190602",
+      "web_refs": [
+        "turn3view2",
+        "turn7view1",
+        "turn9view3"
+      ],
+      "supports": "Time-integrated force covariance friction tensor Eq.12, quadratic excess power Eq.13, thermodynamic length and constant excess-power optimal protocols."
+    },
+    {
+      "key": "barato2018",
+      "authors": "Andre C. Barato, Raphael Chetrite",
+      "title": "Current fluctuations in periodically driven systems",
+      "year": 2018,
+      "journal": "Journal of Statistical Mechanics 2018, 053207",
+      "url": "https://arxiv.org/abs/1802.09896",
+      "full_text_url": "https://arxiv.org/html/1802.09896v2",
+      "doi": "10.1088/1742-5468/aabfc5",
+      "web_refs": [
+        "turn6view3",
+        "turn7view2"
+      ],
+      "supports": "Tilted generator monodromy, maximal Floquet exponent as SCGF, mean current and diffusion coefficient; includes molecular pump example."
+    },
+    {
+      "key": "tam2007",
+      "authors": "Daniel Tam, A. E. Hosoi",
+      "title": "Optimal Stroke Patterns for Purcell's Three-Link Swimmer",
+      "year": 2007,
+      "journal": "Physical Review Letters 98, 068105",
+      "url": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.98.068105",
+      "doi": "10.1103/PhysRevLett.98.068105",
+      "web_refs": [
+        "turn12view0"
+      ],
+      "supports": "Established geometric stroke optimization as adjacent motivation; do not attribute our exact stochastic singular-value formula to this source."
+    },
+    {
+      "key": "chernyak2009",
+      "authors": "V. Y. Chernyak, N. A. Sinitsyn",
+      "title": "Robust quantization of a molecular motor motion in a stochastic environment",
+      "year": 2009,
+      "journal": "Journal of Chemical Physics 131, 181101",
+      "url": "https://arxiv.org/abs/0906.3032",
+      "doi": "10.1063/1.3263821",
+      "web_refs": [
+        "turn12view2"
+      ],
+      "supports": "Known low-temperature adiabatic pump quantization, relevant for future robust design; finite-temperature numerical near-integer values alone are not a quantization theorem."
+    },
+    {
+      "key": "brandner2015",
+      "authors": "Kay Brandner, Keiji Saito, Udo Seifert",
+      "title": "Thermodynamics of Micro- and Nano-Systems Driven by Periodic Temperature Variations",
+      "year": 2015,
+      "journal": "Physical Review X 5, 031019",
+      "url": "https://arxiv.org/abs/1505.07771",
+      "doi": "10.1103/PhysRevX.5.031019",
+      "web_refs": [
+        "turn8view4"
+      ],
+      "supports": "Periodic microscopic engines, entropy-current organization and power-efficiency limitations; useful extension rather than essential fixed-temperature theorem."
+    }
+  ],
+  "design_notes": [
+    "Barrier-only directions have d pi=0 and zero leading state-space entropy/friction cost. Use positive actuator metric M=zeta+eta R with eta>0, or hard barrier amplitude/speed bounds. Never claim total physical efficiency using particle entropy alone.",
+    "No-pumping is exact for periodic steady state. An arbitrary nonequilibrium initial state produces a transient integrated current that is not covered by the periodic zero-current conclusion.",
+    "For tilted generators, multiply off-diagonal jump terms by exp(chi d_ij) but retain original escape-rate diagonals; do not re-balance columns after tilting.",
+    "At finite driving rate loop reversal need not give exactly opposite integrated current. Antisymmetry is exact for the adiabatic geometric term; finite-rate discrepancy is measured.",
+    "Closed finite-state pumps produce cycle circulation. Reservoir-to-reservoir separation or useful mechanical work requires an augmented open/load model and is an application pathway, not already established by a closed-ring calculation.",
+    "The ten-equation ranking is a selection by compatibility, not a factual claim that these known equations have been neglected or that geometric stochastic pumping is new.",
+    "Research-source webpage word limits were 200 words each; summarize source-specific background concisely, derive the new synthesis in original language, and do not reproduce long source text."
+  ],
+  "derived_compiler_identities": {
+    "definitions": "W=diag(g), A=D W D^T, K=W D^T A^+, H=I-KD",
+    "current": "j^ad=K(B) dot(pi(E)); Q^ad=integral K(B) d pi(E)",
+    "barrier_derivative": "partial_{B_b}K=-H e_b e_b^T K on zero-sum inputs",
+    "mixed_curvature": "F_{B_b,E_a}=-H[:,b]*(K partial_{E_a}pi)[b]; pure E-E and B-B blocks vanish",
+    "gate_rank": "With all independent well controls available, rank local attainable cycle currents from S barrier gates equals rank H[:,S]=|S|-c(G\\S)+1=beta1(G)-beta1(G\\S).",
+    "proof_sketch": "Differentiate K=W D^T A^+ on 1-perp. dK=(I-KD)dW D^T A^+; for one log-barrier dW=-g_b e_b e_b^T dB_b. Rank follows because ker H is im(WD^T), and gradients supported on S have c(G\\S)-1 free component potentials.",
+    "relation_to_literature": "Constructive representation of the established geometric pumping and pumping-restriction framework; use as a derived compiler architecture rather than claiming the pumping restriction itself is new.",
+    "numerical_sanity_check": "5-node/7-edge connected graph, DH max5.55e-16; all seven centered barrier derivative comparisons h=1e-5 agree at max2.91e-11."
+  }
+}

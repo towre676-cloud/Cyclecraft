@@ -1,0 +1,393 @@
+{
+  "schema": "recovered-research-source-import-v1",
+  "repository": "Cyclecraft",
+  "source_archives": [
+    {
+      "name": "Cyclecraft_Complete.zip",
+      "sha256": "179bb1e65e805d34a7770134195c915de2f6b773727f2e4d71d1b82e4f4468ed",
+      "bytes": 13059336,
+      "destination": ".",
+      "library_file_id": "libfile_f8200d3015b88191a5379502551f1dee",
+      "url": "https://chatgpt.com/library?file_id=libfile_f8200d3015b88191a5379502551f1dee&account_id=personal"
+    }
+  ],
+  "files": [
+    {
+      "path": "Cyclecraft.html",
+      "sha256": "1de4e97c9dfd952648d80fd3179063187348e8f5a22025a7a74d73de1af0732c",
+      "bytes": 8655437,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "gzip",
+      "stored_path": "_evidence/1de4e97c9dfd952648d80fd3179063187348e8f5a22025a7a74d73de1af0732c.gz"
+    },
+    {
+      "path": "Cyclecraft_Numerical_Program.zip",
+      "sha256": "811906b2255b89285d02a6aae840af43e9da049e1379e3b0f2be9b8ebe1d64f9",
+      "bytes": 2941168,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "First_Edition/Cyclecraft_V1_Archive.zip",
+      "sha256": "b768396d3d33f55f8011ad74d215f5638ca219537a66663c89392dc4cdcbcb16",
+      "bytes": 2339095,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "KATEX_LICENSE.txt",
+      "sha256": "766ccc1f306c885aa45542a9846bbd0a505b27a0374f146778171c2254ce18e3",
+      "bytes": 1107,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "engineering_sources.json",
+      "sha256": "4f85282f390075ca61cc043550e7dbce67ef56431aaedc76cd8635d74b7f1987",
+      "bytes": 807,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "katex.min.js",
+      "sha256": "e6bfe5deebd4c7ccd272055bab63bd3ab2c73b907b6e6a22d352740a81381fd4",
+      "bytes": 275414,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "katex_embedded.css",
+      "sha256": "2af31e361bdaee60b46ba925787631aa0f26f0d0ad621b8826f4d8240682745b",
+      "bytes": 369570,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "paper.css",
+      "sha256": "9a882f6178fda9b2ed6fa91fdf9ade82e8f93372ff66a48e2e7212c60dd1dca0",
+      "bytes": 8603,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "sources.json",
+      "sha256": "a2acb11cf5f33a7111fe3e7e516784393f0a374075f191b424fa46c89e34dccf",
+      "bytes": 14861,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/README.md",
+      "sha256": "974a8031bec55df1d0343a941136e2b34ca5894c68e834e15181d1916f406356",
+      "bytes": 4737,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/SHA256SUMS.json",
+      "sha256": "4bf51e01de591e91f35171c385f3171c53950e365ec7d34a0654ddf3b0df8d40",
+      "bytes": 2448,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/aggregate_convex.py",
+      "sha256": "bb3229212132a0046f47545a26eb7321a18c03665a2d4f026b4c54a84fced81c",
+      "bytes": 4753,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/build_v2.py",
+      "sha256": "3d13c0a6b4b7acd127ddf12c9de647881d8f84fd381b7539e142eb1dc64f512a",
+      "bytes": 14830,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/build_v2_receipt.json",
+      "sha256": "abb6e2aa100139be4a21107d81a790ac64455b98784a1b068ecf2c543333ece2",
+      "bytes": 140,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/certificate_markup.html",
+      "sha256": "0acef7f67f4303ade100a0e3dd3f3c2db9cede5e4dc2702dd22f95eccac941da",
+      "bytes": 1284,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/certificate_visual.js",
+      "sha256": "59a639021eb4d917f78db9eb0ab0813287c5802d6c0f0c769a3b9947d0713b89",
+      "bytes": 3045,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/convex_compile.py",
+      "sha256": "77b4a7745c8d29caf32b70b5880bf5ceb4475b0248263a1200f13d85c777dd17",
+      "bytes": 7949,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/convex_raw_64.json",
+      "sha256": "f5e63f4c6086cc50c18ec21709a11a924740cd2a5c97c364767a825c07b2aed4",
+      "bytes": 3661884,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "gzip",
+      "stored_path": "_evidence/f5e63f4c6086cc50c18ec21709a11a924740cd2a5c97c364767a825c07b2aed4.gz"
+    },
+    {
+      "path": "v2/convex_results.json",
+      "sha256": "8d6fc6268329766ac17994f7a33634d7ebbfc37cdc3549ffeb4a2203bf319166",
+      "bytes": 18392,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/dual_bounds_64_128.json",
+      "sha256": "c5bcfb1f8d1921dc2dc6deb8c2d681a7f413bd4d986752ef4738ce0b32f26080",
+      "bytes": 2755,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/dual_certificate.py",
+      "sha256": "66844c5ad2c1dfe2d3ecef82f4582c20ef21ab96295d42666912b8bf592cc714",
+      "bytes": 6669,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/hero_v2.js",
+      "sha256": "e10733c15c59d2c03d53360427765598125c7a13380620ec1593217358e381d2",
+      "bytes": 3059,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/noise_geometry_audit.py",
+      "sha256": "11704175044629f249db53498be057bfd38308cbf5c29ab0b0a4eee84f4336d3",
+      "bytes": 7657,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/noise_geometry_results.json",
+      "sha256": "0507e88837f7cb33acd111d3f1d59ea72bbd4eb65a7e44792256d0b7af0692e0",
+      "bytes": 44554,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/noise_smooth_review.json",
+      "sha256": "8d168d8d26bcb523c0d6a56391eed62da30a9bf44bb556f255e1e9d1e4391176",
+      "bytes": 3608,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/noise_smooth_review.py",
+      "sha256": "8cbc3a2c9a2846964526d669fb3b4b02bdba5f10d4cdd73e1738a2dc1c5ab94d",
+      "bytes": 2390,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/paper_certification_v2.html",
+      "sha256": "0c0a35f7c743dfd1c35a5ac6162ed9804a5b4b809306463470b9ac6f44922def",
+      "bytes": 19053,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/paper_convex_v2.html",
+      "sha256": "ac67780250dd5553dd71b95eed3e297bab4e532189f383027a82719ca4c92590",
+      "bytes": 27779,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/paper_engineering_v2.html",
+      "sha256": "b181843afb3d034868ab63c7e95cfc5095ded6e7c4c0a1797c2f7d341ced1a6a",
+      "bytes": 20329,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/paper_front_v2.html",
+      "sha256": "075264f9ad1f2b2738a4affc94ef26a2c2fbaa403da479bb494ed6a13272a1ad",
+      "bytes": 12806,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/paper_noise_v2.html",
+      "sha256": "6ea8b2befcbcebe8e6d2bda16909f3527266597540418f5164387682126a8db0",
+      "bytes": 20464,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/paper_results_v2.html",
+      "sha256": "db2a4bde3672e212118b0cbc1aefa84bf90eec0ec19debb5fdc5fec1133497d5",
+      "bytes": 26458,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/paper_theory_v2.html",
+      "sha256": "0068149246ede52355330a3685ba678ba92240555026794f9d79bff9d06d45c9",
+      "bytes": 35994,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/paper_v2.css",
+      "sha256": "6c5bce205fc22a0ec4f8f0d8cb979dedfee96931d761d27b0721781877005606",
+      "bytes": 1120,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/precision_cert.py",
+      "sha256": "1a67dd6a58a5f963054800c5422f4740e49257926dc5af75586c15dd31d4ddc8",
+      "bytes": 12183,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/precision_cert_results.json",
+      "sha256": "3b81411472ccc17b5cb93865b89ac7fa1f0937419678c93116356708ce839c8c",
+      "bytes": 57741,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/primal_cert_results.json",
+      "sha256": "8b30012519da61089e115bb4560a1c9f2ca41da0f1f25399355903ce5ad27279",
+      "bytes": 592880,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "gzip",
+      "stored_path": "_evidence/8b30012519da61089e115bb4560a1c9f2ca41da0f1f25399355903ce5ad27279.gz"
+    },
+    {
+      "path": "v2/primal_certificate.py",
+      "sha256": "1f66175f4980426b380b26b26e2b97ba42fbfd81f564ecf9409f91e2ee2291a7",
+      "bytes": 13669,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/qa_v2_receipt.json",
+      "sha256": "7dc20985b50d519b0aaf8154b311a7ab3b5df148ccb16316fb5b4d294cb42890",
+      "bytes": 1234,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/replay_v2.py",
+      "sha256": "362314d4ee3eff731e2209021e7f165f8e219ecb1e10f0ca1206b709715d828a",
+      "bytes": 1734,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/replay_v2_receipt.json",
+      "sha256": "b778be970325f2e786c778551198e5fce84b9787b77b291658344e663bbb33ca",
+      "bytes": 1449,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/requirements-core.txt",
+      "sha256": "e8af85c417302c7a5abae30dbb572f876a44f686e672f8fea359d0cf5f02c59a",
+      "bytes": 75,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/requirements-opt.txt",
+      "sha256": "2282005b2de63a5f40f7d1ba4cb4d41d629b036ed74f2e3a182a66771b7b2c52",
+      "bytes": 55,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/review_receipt.json",
+      "sha256": "c0e7eb34d2f6d498ec1252ca2055d6e2b9fc118c13d3db03b53a150910d375d2",
+      "bytes": 4538,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/sources_v2.json",
+      "sha256": "78cbbd88812190383bcce0434e10b86170a94a56cb36c14e784dc85357edd40e",
+      "bytes": 10528,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/statistics.py",
+      "sha256": "2f86dc8049d5c820877ad9d65f0d62fdeb13a91f7483d0308f9d6447b7ecb3b3",
+      "bytes": 26176,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/statistics_compiled_results.json",
+      "sha256": "e7af40cfb96bcd3c071bbf551259abdc704c9e4db4f2104f4dc7978c398ad898",
+      "bytes": 1286995,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "gzip",
+      "stored_path": "_evidence/e7af40cfb96bcd3c071bbf551259abdc704c9e4db4f2104f4dc7978c398ad898.gz"
+    },
+    {
+      "path": "v2/statistics_results.json",
+      "sha256": "a015347c5d77f409e39415e52e516671f9b621956f6e13305f4c9d9b209c274e",
+      "bytes": 8512630,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "gzip",
+      "stored_path": "_evidence/a015347c5d77f409e39415e52e516671f9b621956f6e13305f4c9d9b209c274e.gz"
+    },
+    {
+      "path": "v2/tree_exact.py",
+      "sha256": "e10e3dccbf706a96f97a0233d8bbec2533daa702882f99e74b3f877f8f2c7ae0",
+      "bytes": 18200,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/tree_exact_results.json",
+      "sha256": "8aec98662ba142248b5a84ae9b35e01767842ff964192bcaecad0fbc6241b2bb",
+      "bytes": 96783,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/visuals_v2.css",
+      "sha256": "1216559b0be2b1a8b7c8de7961e05dea6fcf5aed87121d8042fe9018dba0380f",
+      "bytes": 3484,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/visuals_v2.js",
+      "sha256": "64669ee1fa66d210fda5c85bf3ce797d882e9ea11ece61109ab2396a0b72a0b0",
+      "bytes": 20581,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    },
+    {
+      "path": "v2/visuals_v2_markup.html",
+      "sha256": "beb954d34238a94546211459406dd62be8975d83e1bb996d0ad547f1672e2937",
+      "bytes": 6050,
+      "archive": "Cyclecraft_Complete.zip",
+      "storage": "direct"
+    }
+  ],
+  "fresh_replay": "See FRESH_VALIDATION.json; historical receipts are retained separately."
+}
